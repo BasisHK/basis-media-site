@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basis Media HK — AI creative that actually gets seen</title>
+  <meta name="description" content="Basis Media is a Hong Kong AI creative agency. Viral short-form video, podcasts, brand campaigns and UGC for restaurants, boutiques and small businesses." />
+  <meta property="og:title" content="Basis Media HK — AI creative that actually gets seen" />
+  <meta property="og:description" content="Hong Kong AI creative agency. Short-form video, podcasts, brand campaigns, UGC." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=23" />
+</head>
+<body>
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- Page transition overlay -->
+  <div class="page-veil" aria-hidden="true"><span>Basis Media</span></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" id="progress" aria-hidden="true"><i></i></div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" data-magnetic aria-label="Basis Media HK — home">
+      <span class="nav__mark">◆</span> Basis<span class="nav__thin">Media</span>
+    </a>
+    <nav class="nav__links" id="navlinks" aria-label="Primary">
+      <a href="#work" data-spy="#work" data-magnetic>Work</a>
+      <a href="#process" data-spy="#process" data-magnetic>Process</a>
+      <a href="#services" data-spy="#services" data-magnetic>Services</a>
+      <a href="journal.html" data-magnetic>Journal</a>
+      <a href="about.html" data-magnetic>About</a>
+    </nav>
+    <a href="mailto:hello@basismedia.hk" class="nav__cta" data-magnetic>Let's talk</a>
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- Fullscreen menu overlay -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <nav class="menu__inner" aria-label="Mobile">
+      <a href="#work" class="menu__link">Work</a>
+      <a href="#process" class="menu__link">Process</a>
+      <a href="#services" class="menu__link">Services</a>
+      <a href="journal.html" class="menu__link">Journal</a>
+      <a href="about.html" class="menu__link">About</a>
+      <a href="mailto:hello@basismedia.hk" class="menu__cta">Let's talk →</a>
+    </nav>
+    <div class="menu__foot">Hong Kong · AI creative studio · 香港</div>
+  </div>
+
+  <!-- Hero -->
+  <main id="top">
+    <section class="hero" id="hero">
+      <canvas class="hero__canvas" aria-hidden="true"></canvas>
+      <div class="hero__grain" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
+      <p class="hero__eyebrow reveal">Hong Kong · AI Creative Studio · 香港</p>
+      <h1 class="hero__title">
+        <span class="line"><span class="w">AI</span> <span class="w">creative</span></span>
+        <span class="line"><span class="w">that</span> <span class="w accent">actually</span></span>
+        <span class="line"><span class="w accent">gets</span> <span class="w">seen.</span></span>
+      </h1>
+      <div class="hero__meta reveal">
+        <p>We make scroll-stopping short-form video, podcasts, brand campaigns &amp; UGC for the businesses locals actually love — restaurants, boutiques, the underdogs.</p>
+        <a href="#work" class="btn btn--ghost" data-magnetic>See the work ↓</a>
+      </div>
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee__track">
+          <span>Short-form video</span><span>◆</span><span>Podcasts</span><span>◆</span><span>Brand campaigns</span><span>◆</span><span>UGC</span><span>◆</span><span>Short-form video</span><span>◆</span><span>Podcasts</span><span>◆</span><span>Brand campaigns</span><span>◆</span><span>UGC</span><span>◆</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Intro / scroll narrative -->
+    <section class="statement" id="about">
+      <p class="statement__text">
+        <span class="reveal-word">Most</span> <span class="reveal-word">agencies</span> <span class="reveal-word">make</span> <span class="reveal-word">ads</span> <span class="reveal-word">nobody</span> <span class="reveal-word">watches.</span>
+        <span class="reveal-word accent">We</span> <span class="reveal-word accent">make</span> <span class="reveal-word accent">content</span> <span class="reveal-word accent">people</span> <span class="reveal-word accent">send</span> <span class="reveal-word accent">to</span> <span class="reveal-word accent">their</span> <span class="reveal-word accent">group</span> <span class="reveal-word accent">chat.</span>
+      </p>
+    </section>
+
+    <!-- Capabilities strip -->
+    <section class="caps" id="capabilities" aria-label="What sets us apart">
+      <p class="caps__eyebrow reveal">What sets us apart</p>
+      <ul class="caps__list reveal">
+        <li class="cap">AI-accelerated</li>
+        <li class="cap">Hong Kong-made</li>
+        <li class="cap">Founder-led</li>
+        <li class="cap">Platform-native</li>
+        <li class="cap">Bilingual 中英</li>
+        <li class="cap">Small-business budgets</li>
+      </ul>
+      <p class="caps__trust reveal">Trusted by <strong>Kowloon Noodle Co.</strong> · <strong>ÓNA</strong> · <strong>Pho Bay</strong> · <strong>SPICE</strong> · and six independent cafés across Hong Kong Island.</p>
+    </section>
+
+    <!-- Client marquee -->
+    <section class="clients" aria-label="Clients">
+      <div class="clients__viewport">
+        <div class="clients__track">
+          <span class="clients__set">
+            <b>Kowloon Noodle Co.</b><i>◆</i><b>ÓNA</b><i>◆</i><b>Pho Bay</b><i>◆</i><b>SPICE</b><i>◆</i><b>Six independent cafés</b><i>◆</i><b>後生仔講嘢 / Youngblood</b><i>◆</i><b>Sheung Wan Boutique</b><i>◆</i><b>Café Collective</b><i>◆</i>
+          </span>
+          <span class="clients__set" aria-hidden="true">
+            <b>Kowloon Noodle Co.</b><i>◆</i><b>ÓNA</b><i>◆</i><b>Pho Bay</b><i>◆</i><b>SPICE</b><i>◆</i><b>Six independent cafés</b><i>◆</i><b>後生仔講嘢 / Youngblood</b><i>◆</i><b>Sheung Wan Boutique</b><i>◆</i><b>Café Collective</b><i>◆</i>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="work" id="work">
+      <div class="section-head reveal">
+        <h2 class="section-title">Selected <em>work</em></h2>
+        <p class="section-sub">Real briefs. Real reach. Made in Hong Kong.</p>
+      </div>
+
+      <div class="works">
+        <article class="work-item work-item--a reveal">
+          <span class="work__num" aria-hidden="true">01</span>
+          <div class="work__media" data-tilt style="--c1:#ff2e93;--c2:#7a1550;">
+            <img class="work__img" src="work-1.jpg" alt="Filming short-form video at a Sham Shui Po noodle shop" width="800" height="500" loading="eager" decoding="async" />
+            <span class="work__tag">Short-form video</span>
+          </div>
+          <div class="work__caption">
+            <h3 class="work__title">Kowloon Noodle Co.</h3>
+            <p>A 12-video TikTok sprint that turned a Sham Shui Po noodle shop into a queue-round-the-block phenomenon.</p>
+            <span class="work__stat">2.4M views · +180% weekend covers</span>
+          </div>
+        </article>
+
+        <article class="work-item work-item--b reveal">
+          <span class="work__num" aria-hidden="true">02</span>
+          <div class="work__media" data-tilt style="--c1:#b13bff;--c2:#3a1466;">
+            <img class="work__img" src="work-2.jpg" alt="Hong Kong podcast studio in session" width="800" height="500" loading="eager" decoding="async" />
+            <span class="work__tag">Podcast</span>
+          </div>
+          <div class="work__caption">
+            <h3 class="work__title">後生仔講嘢 <em>/ Youngblood</em></h3>
+            <p>A bilingual founder podcast — full production, clips, and a social engine that grew it from 0 to top-20 HK business charts.</p>
+            <span class="work__stat">Top 20 HK Business · 60k monthly</span>
+          </div>
+        </article>
+
+        <article class="work-item work-item--c reveal">
+          <span class="work__num" aria-hidden="true">03</span>
+          <div class="work__media" data-tilt style="--c1:#ff5ea3;--c2:#5c1030;">
+            <img class="work__img" src="work-3.jpg" alt="Sheung Wan boutique brand campaign shoot" width="800" height="500" loading="eager" decoding="async" />
+            <span class="work__tag">Brand campaign</span>
+          </div>
+          <div class="work__caption">
+            <h3 class="work__title">Sheung Wan <em>Boutique</em></h3>
+            <p>Full-funnel launch: hero film, UGC seeding with local creators, and paid social that sold out the first drop in 72 hours.</p>
+            <span class="work__stat">Sold out in 72h · 4.1x ROAS</span>
+          </div>
+        </article>
+
+        <article class="work-item work-item--d reveal">
+          <span class="work__num" aria-hidden="true">04</span>
+          <div class="work__media" data-tilt style="--c1:#ff2e93;--c2:#2a0f3d;">
+            <img class="work__img" src="work-4.jpg" alt="Café UGC creator filming content" width="800" height="500" loading="eager" decoding="async" />
+            <span class="work__tag">UGC</span>
+          </div>
+          <div class="work__caption">
+            <h3 class="work__title">Café <em>collective</em></h3>
+            <p>A rolling UGC program across six independent cafés — authentic creator content that never looks like an ad.</p>
+            <span class="work__stat">300+ assets · 9.2% avg engagement</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Manifesto -->
+    <section class="manifesto" id="manifesto">
+      <p class="manifesto__eyebrow reveal">Our belief</p>
+      <blockquote class="manifesto__quote">
+        <span class="reveal-word">We're</span> <span class="reveal-word">not</span> <span class="reveal-word">an</span> <span class="reveal-word">agency.</span>
+        <span class="reveal-word accent">We're</span> <span class="reveal-word accent">a</span> <span class="reveal-word accent">content</span> <span class="reveal-word accent">engine</span>
+        <span class="reveal-word">for</span> <span class="reveal-word">the</span> <span class="reveal-word">businesses</span>
+        <span class="reveal-word">Hong</span> <span class="reveal-word">Kong</span> <span class="reveal-word">actually</span> <span class="reveal-word">goes</span> <span class="reveal-word">to.</span>
+      </blockquote>
+      <p class="manifesto__foot reveal">Small teams. Big reach. Made with AI, directed by people who know the city.</p>
+    </section>
+
+    <!-- Kinetic studio reel — replaces the old empty band -->
+    <section class="reel" id="reel" aria-label="Studio reel">
+      <div class="reel__frame">
+        <div class="reel__grid" aria-hidden="true">
+          <img src="work-1.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+          <img src="work-2.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+          <img src="work-3.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+          <img src="work-4.jpg" alt="" width="800" height="500" loading="lazy" decoding="async" />
+        </div>
+        <div class="reel__scan" aria-hidden="true"></div>
+        <div class="reel__copy">
+          <p class="reel__eyebrow">Studio reel · 香港製造 · 2026</p>
+          <h2 class="reel__type">
+            <span class="reel__static">We make it</span>
+            <span class="reel__cycle" data-cycle='["loud","local","fast","yours","真係得"]'><em>loud</em></span>
+          </h2>
+          <p class="reel__note">One shoot day. A month of content. Shot on Fuk Wing Street, Sheung Wan, Sai Ying Pun — wherever Hong Kong actually eats.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signature stat band -->
+    <section class="bigstat" id="bigstat" aria-label="Studio numbers">
+      <blockquote class="bigstat__quote reveal">“<b>2.4 million views</b> came out of one noodle shop in Sham Shui Po.”</blockquote>
+      <div class="numbers reveal" aria-label="Studio numbers">
+        <div class="number"><div class="number__num" data-count-to="2.4" data-decimals="1" data-suffix="M">2.4M</div><div class="number__label">Views from one noodle shop</div></div>
+        <div class="number"><div class="number__num" data-count-to="180" data-prefix="+" data-suffix="%">+180%</div><div class="number__label">Weekend covers, sustained</div></div>
+        <div class="number"><div class="number__num" data-count-to="12" data-suffix="">12</div><div class="number__label">Videos from one shoot day</div></div>
+      </div>
+      <dl class="bigstat__meta reveal">
+        <div><dt>Client</dt><dd>Kowloon Noodle Co.</dd></div>
+        <div><dt>Shoot time</dt><dd>1 day</dd></div>
+        <div><dt>Videos cut</dt><dd>12</dd></div>
+        <div><dt>Weekend covers</dt><dd>+180%</dd></div>
+      </dl>
+      <div class="bigstat__marquee" aria-hidden="true">
+        <div class="bigstat__track">
+          <span>Kowloon Noodle Co.</span><span>後生仔講嘢</span><span>Sheung Wan Boutique</span><span>Café Collective</span><span>香港製造</span>
+          <span>Kowloon Noodle Co.</span><span>後生仔講嘢</span><span>Sheung Wan Boutique</span><span>Café Collective</span><span>香港製造</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process / How we work -->
+    <section class="process" id="process">
+      <div class="section-head reveal">
+        <h2 class="section-title">How we <em>work</em></h2>
+        <p class="section-sub">Four steps. No decks nobody reads. From first coffee to content that travels — usually in under three weeks.</p>
+      </div>
+      <ol class="process__list">
+        <li class="step reveal">
+          <span class="step__no">01</span>
+          <div class="step__body">
+            <h3>Discover</h3>
+            <p>We sit in your shop. We eat the food, watch who walks in, listen to how your regulars talk about you. Strategy that starts on the street beats strategy that starts in a spreadsheet — and it's how we find the one true thing worth saying.</p>
+            <span class="step__note">Deliverable — a one-page brief, in plain language.</span>
+          </div>
+        </li>
+        <li class="step reveal">
+          <span class="step__no">02</span>
+          <div class="step__body">
+            <h3>Direct with AI</h3>
+            <p>AI is our camera crew, not our creative director. We use it to storyboard twenty concepts in the time an agency writes one, then a human kills nineteen. Speed on the machine side, taste on ours. That's the whole trick.</p>
+            <span class="step__note">Deliverable — concepts, hooks &amp; shot lists in 72 hours.</span>
+          </div>
+        </li>
+        <li class="step reveal">
+          <span class="step__no">03</span>
+          <div class="step__body">
+            <h3>Produce</h3>
+            <p>Small crews, fast days, no bloat. We shoot vertical-first because that's where people actually watch, and we cut for the first 1.5 seconds because that's where they decide. Every asset ships in every ratio you'll need.</p>
+            <span class="step__note">Deliverable — a month of content from a single shoot day.</span>
+          </div>
+        </li>
+        <li class="step reveal">
+          <span class="step__no">04</span>
+          <div class="step__body">
+            <h3>Distribute</h3>
+            <p>Publishing isn't the finish line, it's the experiment. We post, read the retention curves, and re-cut what's working within the week. Content is a system you tune — not a campaign you launch and forget.</p>
+            <span class="step__note">Deliverable — monthly reporting a human actually explains.</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Services -->
+    <section class="services" id="services">
+      <div class="section-head reveal">
+        <h2 class="section-title">What we <em>do</em></h2>
+        <p class="section-sub">AI-accelerated, human-directed. Fast, but never soulless.</p>
+      </div>
+      <ul class="svc-list">
+        <li class="svc reveal">
+          <span class="svc__no">01</span>
+          <div class="svc__media"><img src="work-1.jpg" alt="Short-form video production in a Sham Shui Po noodle shop" width="1200" height="800" decoding="async" loading="lazy"></div>
+          <div class="svc__body">
+            <h3>Short-form video</h3>
+            <p>TikTok, Reels, Shorts. Hook-first, format-native video engineered to stop the scroll and travel.</p>
+          </div>
+        </li>
+        <li class="svc reveal">
+          <span class="svc__no">02</span>
+          <div class="svc__media"><img src="work-2.jpg" alt="Hong Kong podcast studio in session" width="1200" height="800" decoding="async" loading="lazy"></div>
+          <div class="svc__body">
+            <h3>Podcasts</h3>
+            <p>End-to-end podcast production — recording, editing, clip cutdowns and the social system that grows the show.</p>
+          </div>
+        </li>
+        <li class="svc reveal">
+          <span class="svc__no">03</span>
+          <div class="svc__media"><img src="work-3.jpg" alt="Sheung Wan boutique brand campaign shoot" width="1200" height="800" decoding="async" loading="lazy"></div>
+          <div class="svc__body">
+            <h3>Brand campaigns</h3>
+            <p>From concept to hero film to paid rollout. Big ideas that punch above a small-business budget.</p>
+          </div>
+        </li>
+        <li class="svc reveal">
+          <span class="svc__no">04</span>
+          <div class="svc__media"><img src="work-4.jpg" alt="Café UGC creator filming content" width="1200" height="800" decoding="async" loading="lazy"></div>
+          <div class="svc__body">
+            <h3>UGC content</h3>
+            <p>Creator-style content at scale — the authentic stuff that converts, without the influencer price tag.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- From the journal -->
+    <section class="jstrip" id="journal" aria-label="From the journal">
+      <div class="jstrip__head">
+        <p class="jstrip__eyebrow reveal">From the journal · 我哋寫嘅嘢</p>
+        <a href="journal.html" class="jstrip__more reveal" data-magnetic>Read all →</a>
+      </div>
+      <ul class="jstrip__grid">
+        <li class="reveal"><h3>Why your restaurant's TikTok should look like a mistake</h3><p>Polished food film is invisible. Shaky, loud and slightly wrong is what gets sent to the group chat.</p><span class="t">4 min read</span></li>
+        <li class="reveal"><h3>AI doesn't make content — it makes volume</h3><p>The machine gives you fifty cuts. Taste is still the only thing deciding which one ships.</p><span class="t">6 min read</span></li>
+        <li class="reveal"><h3>The 9-second rule for Hong Kong short-form</h3><p>MTR-length attention. What we've learned about the beat where HK viewers decide to stay.</p><span class="t">5 min read</span></li>
+      </ul>
+    </section>
+
+    <!-- CTA / Contact -->
+    <section class="cta" id="contact">
+      <h2 class="cta__title">Let's make something<br /><span class="accent">worth watching.</span></h2>
+      <p class="cta__sub">Tell us about your brand. We'll tell you what we'd make.</p>
+      <a href="mailto:hello@basismedia.hk" class="btn btn--big" data-magnetic>hello@basismedia.hk</a>
+      <p class="cta__loc">Based in Hong Kong · Working everywhere · 香港製造</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Basis Media HK</span>
+    <span><a href="journal.html" data-magnetic>Journal</a> · AI creative that actually gets seen.</span>
+    <span class="footer__social">
+      <a href="#" data-magnetic>Instagram</a>
+      <a href="#" data-magnetic>TikTok</a>
+      <a href="#" data-magnetic>LinkedIn</a>
+    </span>
+    <div class="sig" aria-label="Studio signature">
+      <span class="sig__i">BASIS MEDIA HK</span><span class="sig__d">·</span><span class="sig__i">22.3193&deg; N, 114.1694&deg; E</span><span class="sig__d">·</span><span class="sig__i">HONG KONG</span><span class="sig__d">·</span><span class="sig__i">BUILT MMXXVI</span><span class="sig__d">·</span><span class="sig__i">&copy;2026</span>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="main.js?v=19" defer></script>
+</body>
+</html>
