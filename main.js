@@ -652,3 +652,258 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
   else boot();
 })();
+
+/* ============ v5: award motion layer ============ */
+(function () {
+  "use strict";
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canHover = window.matchMedia("(hover: hover)").matches && !("ontouchstart" in window);
+
+  /* ---- Lenis smooth scroll ---- */
+  function initLenis() {
+    if (prefersReduced || typeof Lenis === "undefined") return null;
+    var lenis = new Lenis({
+      duration: 1.15,
+      easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      touchMultiplier: 1.4
+    });
+    if (typeof gsap !== "undefined") {
+      gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    } else {
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+    if (typeof ScrollTrigger !== "undefined") {
+      lenis.on("scroll", ScrollTrigger.update);
+    }
+    document.documentElement.classList.add("lenis", "lenis-smooth");
+    return lenis;
+  }
+
+  /* ---- contextual cursor label ---- */
+  function initCursorLabel() {
+    if (!canHover || prefersReduced) return;
+    var label = document.createElement("div");
+    label.className = "cursor-label";
+    label.setAttribute("aria-hidden", "true");
+    document.body.appendChild(label);
+    var ring = document.querySelector(".cursor");
+    var x = 0, y = 0, lx = 0, ly = 0;
+    window.addEventListener("mousemove", function (e) {
+      x = e.clientX; y = e.clientY;
+    }, { passive: true });
+    (function loop() {
+      lx += (x - lx) * 0.22;
+      ly += (y - ly) * 0.22;
+      label.style.transform = "translate(" + lx + "px," + ly + "px) translate(-50%,-50%)" +
+        (label.classList.contains("is-on") ? " scale(1)" : " scale(.6)");
+      requestAnimationFrame(loop);
+    })();
+    document.querySelectorAll("[data-cursor]").forEach(function (el) {
+      el.addEventListener("mouseenter", function () {
+        label.textContent = el.getAttribute("data-cursor") || "";
+        label.classList.add("is-on");
+        if (ring) {
+          ring.classList.add("is-hover");
+          ring.classList.add(el.getAttribute("data-cursor") === "Talk" ? "is-talk" : "is-view");
+        }
+      });
+      el.addEventListener("mouseleave", function () {
+        label.classList.remove("is-on");
+        if (ring) ring.classList.remove("is-hover", "is-view", "is-talk");
+      });
+    });
+  }
+
+  /* ---- scroll velocity → marquee speed ---- */
+  function initMarqueeVelocity() {
+    if (prefersReduced) return;
+    var lastY = window.scrollY || 0;
+    var lastT = performance.now();
+    var mq = 1;
+    function tick(now) {
+      var y = window.scrollY || 0;
+      var dt = Math.max(16, now - lastT);
+      var v = Math.abs(y - lastY) / dt;
+      var target = 1 + Math.min(2.4, v * 18);
+      mq += (target - mq) * 0.08;
+      document.documentElement.style.setProperty("--mq", mq.toFixed(3));
+      lastY = y; lastT = now;
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  /* ---- section head line draw ---- */
+  function initSectionDraw() {
+    var heads = [].slice.call(document.querySelectorAll(".section-head"));
+    if (!heads.length) return;
+    if (prefersReduced || !("IntersectionObserver" in window)) {
+      heads.forEach(function (h) { h.classList.add("is-drawn"); });
+      return;
+    }
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) {
+        if (en.isIntersecting) {
+          en.target.classList.add("is-drawn");
+          io.unobserve(en.target);
+        }
+      });
+    }, { threshold: 0.55 });
+    heads.forEach(function (h) { io.observe(h); });
+  }
+
+  /* ---- image parallax ---- */
+  function initParallax() {
+    if (prefersReduced) return;
+    var imgs = [].slice.call(document.querySelectorAll("[data-parallax-img], .work__img, .case__hero img, .case__band img"));
+    if (!imgs.length) return;
+    function apply() {
+      var vh = window.innerHeight || 1;
+      imgs.forEach(function (img) {
+        var r = img.getBoundingClientRect();
+        if (r.bottom < -80 || r.top > vh + 80) return;
+        var p = (r.top + r.height * 0.5 - vh * 0.5) / vh;
+        var y = Math.max(-18, Math.min(18, -p * 22));
+        img.style.transform = "translate3d(0," + y.toFixed(2) + "px,0) scale(1.08)";
+      });
+    }
+    var ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(function () { apply(); ticking = false; });
+      }
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    apply();
+  }
+
+  /* ---- process step highlight ---- */
+  function initStepHot() {
+    var steps = [].slice.call(document.querySelectorAll(".step"));
+    if (!steps.length || !("IntersectionObserver" in window)) return;
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (en) {
+        en.target.classList.toggle("is-hot", en.isIntersecting && en.intersectionRatio > 0.45);
+      });
+    }, { threshold: [0.45, 0.7] });
+    steps.forEach(function (s) { io.observe(s); });
+  }
+
+  /* ---- footer rise + signature scramble ---- */
+  function initFooterFX() {
+    var foot = document.querySelector(".footer");
+    if (!foot) return;
+    if (prefersReduced) { foot.classList.add("is-in"); return; }
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(function (ents) {
+        ents.forEach(function (en) {
+          if (en.isIntersecting) {
+            foot.classList.add("is-in");
+            var sig = foot.querySelector(".sig");
+            if (sig) {
+              sig.classList.add("is-live");
+              scramble(sig);
+            }
+          }
+        });
+      }, { threshold: 0.25 }).observe(foot);
+    } else {
+      foot.classList.add("is-in");
+    }
+  }
+
+  function scramble(sig) {
+    if (prefersReduced) return;
+    var nodes = [].slice.call(sig.querySelectorAll(".sig__i"));
+    var glyphs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    nodes.forEach(function (node, idx) {
+      var final = node.textContent;
+      var frames = 10 + idx * 2;
+      var i = 0;
+      var timer = setInterval(function () {
+        if (i >= frames) {
+          node.textContent = final;
+          clearInterval(timer);
+          return;
+        }
+        node.textContent = final.split("").map(function (ch, cIdx) {
+          if (ch === " " || ch === "·" || ch === "°" || /[0-9]/.test(ch) && i > frames - 3) return ch;
+          if (cIdx < (i / frames) * final.length) return final[cIdx];
+          return glyphs[Math.floor(Math.random() * glyphs.length)];
+        }).join("");
+        i++;
+      }, 28);
+    });
+  }
+
+  /* ---- hero scroll cue hide ---- */
+  function initScrollCue() {
+    var hero = document.getElementById("hero");
+    if (!hero) return;
+    function check() {
+      hero.classList.toggle("is-scrolled", (window.scrollY || 0) > 40);
+    }
+    window.addEventListener("scroll", check, { passive: true });
+    check();
+  }
+
+  /* ---- GSAP extras when available ---- */
+  function initGsapExtras() {
+    if (prefersReduced || typeof gsap === "undefined" || typeof ScrollTrigger === "undefined") return;
+    gsap.registerPlugin(ScrollTrigger);
+
+    // bigstat quote scrubbed scale
+    if (document.querySelector(".bigstat__quote")) {
+      gsap.fromTo(".bigstat__quote",
+        { scale: 0.92, opacity: 0.35 },
+        {
+          scale: 1, opacity: 1, ease: "none",
+          scrollTrigger: { trigger: ".bigstat", start: "top 80%", end: "top 30%", scrub: true }
+        }
+      );
+    }
+
+    // services stagger
+    gsap.utils.toArray(".svc").forEach(function (el, i) {
+      gsap.from(el, {
+        x: i % 2 === 0 ? -28 : 28, opacity: 0, duration: 0.9, ease: "power3.out",
+        scrollTrigger: { trigger: el, start: "top 88%" }
+      });
+    });
+
+    // caps list cascade
+    if (document.querySelector(".caps__list")) {
+      gsap.from(".cap", {
+        y: 24, opacity: 0, stagger: 0.07, duration: 0.7, ease: "power3.out",
+        scrollTrigger: { trigger: ".caps__list", start: "top 80%" }
+      });
+    }
+  }
+
+  function boot() {
+    try { initLenis(); } catch (e) {}
+    try { initCursorLabel(); } catch (e) {}
+    try { initMarqueeVelocity(); } catch (e) {}
+    try { initSectionDraw(); } catch (e) {}
+    try { initParallax(); } catch (e) {}
+    try { initStepHot(); } catch (e) {}
+    try { initFooterFX(); } catch (e) {}
+    try { initScrollCue(); } catch (e) {}
+    try { initGsapExtras(); } catch (e) {}
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", boot);
+  else boot();
+  window.addEventListener("load", function () {
+    try { initGsapExtras(); } catch (e) {}
+    if (typeof ScrollTrigger !== "undefined") setTimeout(function () { ScrollTrigger.refresh(); }, 300);
+  });
+})();

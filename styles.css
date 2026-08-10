@@ -1395,3 +1395,138 @@ body{
 @media (max-width:640px){
   .contact__fields{grid-template-columns:1fr}
 }
+
+/* ============ v5 AWARD MOTION ============ */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:hidden}
+.lenis.lenis-smooth iframe{pointer-events:none}
+
+/* contextual cursor label */
+.cursor-label{
+  position:fixed;top:0;left:0;z-index:9998;pointer-events:none;
+  transform:translate(-50%,-50%) scale(.6);opacity:0;
+  padding:10px 14px;border-radius:100px;
+  background:var(--pink);color:#0a0710;
+  font-family:var(--mono,"Space Mono",ui-monospace,monospace);
+  font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;
+  transition:opacity .35s var(--ease),transform .45s cubic-bezier(.16,1,.3,1),background .3s var(--ease);
+  mix-blend-mode:normal;white-space:nowrap;
+}
+.cursor-label.is-on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.cursor.is-view,.cursor.is-talk{border-color:transparent;background:transparent;width:88px;height:88px}
+@media (hover:none),(pointer:coarse){.cursor-label{display:none!important}}
+
+/* hero scroll cue */
+.hero__scroll{
+  position:absolute;bottom:clamp(88px,14vh,140px);left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:10px;z-index:3;
+  font-family:var(--mono,"Space Mono",ui-monospace,monospace);
+  font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);
+  animation:scrollCueFade 1.2s var(--ease) 2.2s both;
+}
+.hero__scroll i{
+  width:1px;height:42px;background:linear-gradient(180deg,var(--pink),transparent);
+  display:block;transform-origin:top;animation:scrollCueLine 1.8s var(--ease) infinite;
+}
+@keyframes scrollCueFade{from{opacity:0;transform:translate(-50%,12px)}to{opacity:1;transform:translateX(-50%)}}
+@keyframes scrollCueLine{0%{transform:scaleY(0);opacity:0}35%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1) translateY(10px);opacity:0}}
+.hero.is-scrolled .hero__scroll{opacity:0;pointer-events:none;transition:opacity .4s}
+
+/* section head draw line */
+.section-head{position:relative}
+.section-head::after{
+  content:"";position:absolute;left:0;bottom:-14px;height:1px;width:100%;
+  background:linear-gradient(90deg,var(--pink),rgba(255,46,147,.15),transparent 70%);
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 1.1s cubic-bezier(.16,1,.3,1);
+}
+.section-head.is-drawn::after{transform:scaleX(1)}
+
+/* button shine sweep */
+.btn--ghost,.btn--big,.nav__cta,.contact__email,.menu__cta{
+  position:relative;overflow:hidden;
+}
+.btn--ghost::before,.btn--big::before,.nav__cta::before{
+  content:"";position:absolute;inset:0;transform:translateX(-120%) skewX(-18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);
+  pointer-events:none;
+}
+.btn--ghost:hover::before,.btn--big:hover::before,.nav__cta:hover::before{
+  animation:btnShine .85s var(--ease);
+}
+@keyframes btnShine{to{transform:translateX(120%) skewX(-18deg)}}
+
+/* work media kinetic hover */
+.work__media{isolation:isolate}
+.work__media::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.16) 48%,transparent 62%);
+  transform:translateX(-130%) skewX(-16deg);transition:none;
+}
+.work-item:hover .work__media::before{animation:mediaShine 1.05s var(--ease)}
+.work-item:hover .work__img{transform:scale(1.08)}
+@keyframes mediaShine{to{transform:translateX(130%) skewX(-16deg)}}
+
+/* parallax image shell */
+[data-parallax]{will-change:transform}
+.work__img,[data-parallax-img]{will-change:transform}
+
+/* process step kinetic enter */
+.step{
+  transition:transform .7s var(--ease),opacity .7s var(--ease),border-color .4s;
+}
+.step.is-hot .step__no{color:var(--pink);transform:scale(1.08);transition:transform .5s var(--ease),color .4s}
+.step__no{display:inline-block;transition:transform .5s var(--ease),color .4s}
+
+/* svc row glide */
+.svc:hover{padding-left:18px}
+.svc:hover .svc__media img{transform:scale(1.06);filter:saturate(1.05) contrast(1.04)}
+
+/* manifesto ambient pulse line */
+.manifesto{overflow:hidden}
+.manifesto::after{
+  content:"";position:absolute;left:-20%;right:-20%;bottom:18%;height:40%;
+  background:radial-gradient(ellipse at center,rgba(255,46,147,.12),transparent 65%);
+  pointer-events:none;filter:blur(8px);
+  animation:manifestoPulse 7s ease-in-out infinite alternate;
+}
+@keyframes manifestoPulse{from{opacity:.35;transform:translateY(8px) scale(1)}to{opacity:.7;transform:translateY(-6px) scale(1.05)}}
+
+/* signature scramble */
+.sig__i{display:inline-block;min-width:ch}
+.sig.is-live .sig__i{animation:sigFlicker .08s steps(2) 4}
+@keyframes sigFlicker{50%{opacity:.45}}
+
+/* contact email underline grow */
+.contact__email{background-image:linear-gradient(var(--pink),var(--pink));background-size:0% 1.5px;background-position:0 100%;background-repeat:no-repeat;transition:background-size .55s var(--ease),color .3s,border-color .3s}
+.contact__email:hover{background-size:100% 1.5px}
+
+/* speed-linked marquees (JS sets --mq) */
+.marquee__track{animation-duration:calc(22s / var(--mq,1))}
+.clients__track{animation-duration:calc(38s / var(--mq,1))}
+.bigstat__track{animation-duration:calc(34s / var(--mq,1))}
+
+/* page load: nav slides in */
+.nav{animation:navIn .9s cubic-bezier(.16,1,.3,1) .2s both}
+@keyframes navIn{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:none}}
+
+/* footer rise */
+.footer{opacity:0;transform:translateY(24px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.footer.is-in{opacity:1;transform:none}
+
+/* article list kinetic */
+a.article{transition:padding-left .5s var(--ease),transform .5s var(--ease)}
+a.article:hover{transform:translateX(4px)}
+
+@media (prefers-reduced-motion:reduce){
+  .hero__scroll,.manifesto::after,.nav,.btn--ghost::before,.btn--big::before,.nav__cta::before,
+  .work__media::before{animation:none!important}
+  .section-head::after{transform:none}
+  .footer{opacity:1;transform:none}
+  .marquee__track,.clients__track,.bigstat__track{animation-duration:40s!important}
+}
+@media (max-width:960px){
+  .hero__scroll{display:none}
+}

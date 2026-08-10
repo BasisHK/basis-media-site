@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=23" />
+  <link rel="stylesheet" href="styles.css?v=26" />
 </head>
 <body>
   <div class="cursor" aria-hidden="true"></div>
@@ -27,7 +27,7 @@
       <a href="about.html" data-magnetic>About</a>
       <a href="contact.html" data-magnetic>Contact</a>
     </nav>
-    <a href="contact.html" class="nav__cta" data-magnetic>Let's talk</a>
+    <a href="contact.html" class="nav__cta" data-magnetic data-cursor="Talk">Let's talk</a>
     <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
       <span></span><span></span>
     </button>
@@ -87,7 +87,7 @@
     <section class="cta" id="contact">
       <h2 class="cta__title">Let's build marketing<br /><span class="accent">worth watching.</span></h2>
       <p class="cta__sub">Tell us about your brand. We'll tell you the campaign we'd run.</p>
-      <a href="contact.html" class="btn btn--big" data-magnetic>Contact us →</a>
+      <a href="contact.html" class="btn btn--big" data-magnetic data-cursor="Talk">Contact us →</a>
       <p class="cta__loc">Based in Hong Kong · Working everywhere · 香港製造</p>
     </section>
   </main>
@@ -106,6 +106,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script src="main.js?v=19" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+  <script src="main.js?v=20" defer></script>
 </body>
 </html>
