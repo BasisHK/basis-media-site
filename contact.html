@@ -6,12 +6,12 @@
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Basis Media, AI Creative Marketing Agency</title>
+  <title data-i18n="meta.contact">Contact — Basis Media, AI Creative Marketing Agency</title>
   <meta name="description" content="Contact Basis Media in Hong Kong. Tell us about your brand — we'll tell you the campaign we'd build. business@basis.hk" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=26" />
+  <link rel="stylesheet" href="styles.css?v=28" />
 </head>
 <body>
   <div class="cursor" aria-hidden="true"></div>
@@ -23,32 +23,40 @@
       <span class="nav__mark">◆</span> Basis<span class="nav__thin">Media</span>
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="work.html" data-magnetic>Work</a>
-      <a href="index.html#process" data-magnetic>Process</a>
-      <a href="index.html#services" data-magnetic>Services</a>
-      <a href="journal.html" data-magnetic>Journal</a>
-      <a href="about.html" data-magnetic>About</a>
-      <a href="contact.html" data-magnetic>Contact</a>
+      <a href="work.html" data-magnetic data-i18n="nav.work">Work</a>
+      <a href="index.html#process" data-magnetic data-i18n="nav.process">Process</a>
+      <a href="index.html#services" data-magnetic data-i18n="nav.services">Services</a>
+      <a href="journal.html" data-magnetic data-i18n="nav.journal">Journal</a>
+      <a href="about.html" data-magnetic data-i18n="nav.about">About</a>
+      <a href="contact.html" data-magnetic data-i18n="nav.contact">Contact</a>
     </nav>
-    <a href="contact.html" class="nav__cta" data-magnetic data-cursor="Talk">Let's talk</a>
-    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__right">
+      <a href="contact.html" class="nav__cta" data-magnetic data-cursor="Talk" data-i18n="nav.talk">Let's talk</a>
+      <div class="nav__lang" role="group" aria-label="Language">
+        <button type="button" class="nav__lang-btn is-active" data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="nav__lang-sep" aria-hidden="true">/</span>
+        <button type="button" class="nav__lang-btn" data-set-lang="zh" aria-pressed="false">粵</button>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Open menu" data-i18n-aria="nav.menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
   </header>
 
   <main class="subpage contact-page" id="top">
     <div class="page-header">
-      <p class="page-header__eyebrow reveal">Contact · 聯絡我們</p>
-      <h1 class="page-header__title reveal">Let's talk about<br /><em>the brief.</em></h1>
-      <p class="page-header__intro reveal">New campaigns, always-on programs, or a sharp creative problem — tell us what you're trying to move. We'll come back with how we'd run it.</p>
+      <p class="page-header__eyebrow reveal" data-i18n="contact.eyebrow">Contact · 聯絡我們</p>
+      <h1 class="page-header__title reveal" data-i18n-html="contact.title">Let's talk about<br /><em>the brief.</em></h1>
+      <p class="page-header__intro reveal" data-i18n="contact.intro">New campaigns, always-on programs, or a sharp creative problem — tell us what you're trying to move. We'll come back with how we'd run it.</p>
     </div>
 
     <section class="contact">
       <div class="contact__grid">
         <div class="contact__primary reveal">
-          <p class="contact__label">Email the agency</p>
+          <p class="contact__label" data-i18n="contact.emailLabel">Email the agency</p>
           <a href="mailto:business@basis.hk" class="contact__email" data-magnetic>business@basis.hk</a>
-          <p class="contact__note">We usually reply within one business day.</p>
+          <p class="contact__note" data-i18n="contact.note">We usually reply within one business day.</p>
           <div class="contact__social">
             <a href="#" data-magnetic>Instagram</a>
             <a href="#" data-magnetic>LinkedIn</a>
@@ -57,55 +65,55 @@
 
         <aside class="contact__meta reveal">
           <div>
-            <p class="contact__label">Based</p>
-            <p>Hong Kong · 香港<br />Working everywhere</p>
+            <p class="contact__label" data-i18n="contact.based">Based</p>
+            <p data-i18n-html="contact.basedVal">Hong Kong · 香港<br />Working everywhere</p>
           </div>
           <div>
-            <p class="contact__label">Best for</p>
-            <p>Growth campaigns, launches, brand platforms, UGC programs</p>
+            <p class="contact__label" data-i18n="contact.best">Best for</p>
+            <p data-i18n="contact.bestVal">Growth campaigns, launches, brand platforms, UGC programs</p>
           </div>
           <div>
-            <p class="contact__label">Languages</p>
-            <p>English · 粵語 · 中英</p>
+            <p class="contact__label" data-i18n="contact.lang">Languages</p>
+            <p data-i18n="contact.langVal">English · 粵語 · 中英</p>
           </div>
         </aside>
       </div>
 
       <form class="contact__form reveal" id="contact-form" action="mailto:business@basis.hk" method="post" enctype="text/plain">
-        <p class="contact__label">Or send a short brief</p>
+        <p class="contact__label" data-i18n="contact.formLabel">Or send a short brief</p>
         <div class="contact__fields">
           <label class="contact__field">
-            <span>Name</span>
-            <input type="text" name="name" autocomplete="name" required placeholder="Your name" />
+            <span data-i18n="contact.name">Name</span>
+            <input type="text" name="name" autocomplete="name" required placeholder="Your name" data-i18n-placeholder="contact.ph.name" />
           </label>
           <label class="contact__field">
-            <span>Email</span>
-            <input type="email" name="email" autocomplete="email" required placeholder="you@brand.com" />
+            <span data-i18n="contact.email">Email</span>
+            <input type="email" name="email" autocomplete="email" required placeholder="you@brand.com" data-i18n-placeholder="contact.ph.email" />
           </label>
           <label class="contact__field contact__field--full">
-            <span>Brand / company</span>
-            <input type="text" name="brand" autocomplete="organization" placeholder="Brand name" />
+            <span data-i18n="contact.brand">Brand / company</span>
+            <input type="text" name="brand" autocomplete="organization" placeholder="Brand name" data-i18n-placeholder="contact.ph.brand" />
           </label>
           <label class="contact__field contact__field--full">
-            <span>What are you trying to achieve?</span>
-            <textarea name="brief" rows="5" required placeholder="Launch, growth, always-on, UGC — a few lines is enough."></textarea>
+            <span data-i18n="contact.achieve">What are you trying to achieve?</span>
+            <textarea name="brief" rows="5" required placeholder="Launch, growth, always-on, UGC — a few lines is enough." data-i18n-placeholder="contact.ph.brief"></textarea>
           </label>
         </div>
-        <button type="submit" class="btn btn--big" data-magnetic>Send brief →</button>
-        <p class="contact__form-note">Opens your email app addressed to business@basis.hk. Prefer WhatsApp-speed? Email still works best for briefs.</p>
+        <button type="submit" class="btn btn--big" data-magnetic data-i18n="contact.send">Send brief →</button>
+        <p class="contact__form-note" data-i18n="contact.formNote">Opens your email app addressed to business@basis.hk. Prefer WhatsApp-speed? Email still works best for briefs.</p>
       </form>
 
       <ul class="contact__checklist reveal" aria-label="What to include">
-        <li><span>01</span><div><strong>The goal</strong><p>Awareness, launch sell-through, always-on pipeline — pick the outcome.</p></div></li>
-        <li><span>02</span><div><strong>The audience</strong><p>Who needs to see it, and where they actually scroll in Hong Kong.</p></div></li>
-        <li><span>03</span><div><strong>The timing</strong><p>Drop date, campaign window, or ongoing retainer.</p></div></li>
+        <li><span>01</span><div><strong data-i18n="contact.c1.t">The goal</strong><p data-i18n="contact.c1.b">Awareness, launch sell-through, always-on pipeline — pick the outcome.</p></div></li>
+        <li><span>02</span><div><strong data-i18n="contact.c2.t">The audience</strong><p data-i18n="contact.c2.b">Who needs to see it, and where they actually scroll in Hong Kong.</p></div></li>
+        <li><span>03</span><div><strong data-i18n="contact.c3.t">The timing</strong><p data-i18n="contact.c3.b">Drop date, campaign window, or ongoing retainer.</p></div></li>
       </ul>
     </section>
   </main>
 
   <footer class="footer">
     <span>© <span id="year"></span> Basis Media HK</span>
-    <span><a href="journal.html" data-magnetic>Journal</a> · AI Creative Marketing Agency.</span>
+    <span><a href="journal.html" data-magnetic data-i18n="nav.journal">Journal</a> · <span data-i18n="footer.agency">AI Creative Marketing Agency.</span></span>
     <span class="footer__social">
       <a href="#" data-magnetic>Instagram</a>
       <a href="#" data-magnetic>LinkedIn</a>
@@ -118,6 +126,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+  <script src="i18n.js?v=2" defer></script>
   <script src="main.js?v=20" defer></script>
   <script>
     (function () {

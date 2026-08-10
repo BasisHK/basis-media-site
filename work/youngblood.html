@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=26" />
+  <link rel="stylesheet" href="../styles.css?v=28" />
 </head>
 <body>
   <div class="cursor" aria-hidden="true"></div>
@@ -23,22 +23,30 @@
       <span class="nav__mark">◆</span> Basis<span class="nav__thin">Media</span>
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="../work.html" data-magnetic>Work</a>
-      <a href="../index.html#process" data-magnetic>Process</a>
-      <a href="../index.html#services" data-magnetic>Services</a>
-      <a href="../journal.html" data-magnetic>Journal</a>
-      <a href="../about.html" data-magnetic>About</a>
-      <a href="../contact.html" data-magnetic>Contact</a>
+      <a href="../work.html" data-magnetic data-i18n="nav.work">Work</a>
+      <a href="../index.html#process" data-magnetic data-i18n="nav.process">Process</a>
+      <a href="../index.html#services" data-magnetic data-i18n="nav.services">Services</a>
+      <a href="../journal.html" data-magnetic data-i18n="nav.journal">Journal</a>
+      <a href="../about.html" data-magnetic data-i18n="nav.about">About</a>
+      <a href="../contact.html" data-magnetic data-i18n="nav.contact">Contact</a>
     </nav>
-    <a href="../contact.html" class="nav__cta" data-magnetic data-cursor="Talk">Let's talk</a>
-    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__right">
+      <a href="../contact.html" class="nav__cta" data-magnetic data-cursor="Talk" data-i18n="nav.talk">Let's talk</a>
+      <div class="nav__lang" role="group" aria-label="Language">
+        <button type="button" class="nav__lang-btn is-active" data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="nav__lang-sep" aria-hidden="true">/</span>
+        <button type="button" class="nav__lang-btn" data-set-lang="zh" aria-pressed="false">粵</button>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Open menu" data-i18n-aria="nav.menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
   </header>
 
   <main class="subpage" id="top">
     <div class="page-header">
-      <a href="../work.html" class="back-link" data-magnetic>← All work</a>
+      <a href="../work.html" class="back-link" data-magnetic data-i18n="case.back">← All work</a>
       <p class="page-header__eyebrow reveal">02 · Brand platform</p>
       <h1 class="page-header__title reveal">後生仔講嘢 <em>/ Youngblood</em></h1>
       <p class="page-header__intro reveal">A bilingual thought-leadership platform for two Hong Kong founders — show format, campaign creative and a distribution system built to grow authority, not just episodes.</p>
@@ -52,22 +60,22 @@
 
       <div class="case__body">
         <div class="case__block reveal">
-          <p class="case__label">The challenge</p>
+          <p class="case__label" data-i18n="case.challenge">The challenge</p>
           <p>Two young founders needed more than a podcast. They needed a brand platform that could earn attention in a category full of careful nothing — HK business audio that sounded like a bank advert. Guests alone wouldn't fix it. Neither would posting harder.</p>
           <p>The marketing problem: build credible founder authority in a bilingual city, then turn that attention into relationships and pipeline.</p>
         </div>
         <div class="case__block reveal">
-          <p class="case__label">The strategy</p>
+          <p class="case__label" data-i18n="case.strategy">The strategy</p>
           <p>We treated the show as the centre of a brand platform campaign. Positioning: talk the way Hong Kong founders actually talk — Cantonese and English mid-sentence, sharp takes, zero corporate gloss. Then design every episode as a content and lead system, not a weekly hobby.</p>
           <p>Discovery would live in short-form; trust would live in long-form; business development would live in the guest network. AI handled transcripts and clip mining so the agency could spend time on editorial and growth strategy.</p>
         </div>
         <div class="case__block reveal">
-          <p class="case__label">The campaign</p>
+          <p class="case__label" data-i18n="case.campaign">The campaign</p>
           <p>End-to-end platform build: format design, Kwun Tong studio setup, two-camera production, edit, mix, artwork and a release calendar. Cold opens drop into the sharpest 20 seconds before intro music. Runtime locked at 38 minutes.</p>
           <p>Each record day feeds a weekly campaign pack — nine vertical clips, three quote cards, one long-form YouTube cut, bilingual captions throughout. Distribution mixes organic social, newsletter seeding and targeted guest amplification. The episode is the asset; the system is the campaign.</p>
         </div>
         <div class="case__block reveal">
-          <p class="case__label">The results</p>
+          <p class="case__label" data-i18n="case.results">The results</p>
           <p>Top 20 HK Business chart by episode 11. 60k monthly listens across audio and video. Clips outperformed episodes 6:1 as a discovery channel — now the template for every platform we build.</p>
           <p>Three guests became clients of the founders' day business. Authority that compounds into revenue.</p>
         </div>
@@ -79,10 +87,10 @@
       </figure>
 
       <dl class="case__credits">
-        <div class="case__credit"><dt>Agency role</dt><dd>Strategy, Format, Production, Growth</dd></div>
-        <div class="case__credit"><dt>Timeline</dt><dd>Ongoing platform · weekly campaign packs</dd></div>
-        <div class="case__credit"><dt>Channels</dt><dd>Podcast · YouTube · Short-form · Newsletter</dd></div>
-        <div class="case__credit"><dt>Year</dt><dd>2026 · Kwun Tong<span>Basis Media HK</span></dd></div>
+        <div class="case__credit"><dt data-i18n="case.role">Agency role</dt><dd>Strategy, Format, Production, Growth</dd></div>
+        <div class="case__credit"><dt data-i18n="case.timeline">Timeline</dt><dd>Ongoing platform · weekly campaign packs</dd></div>
+        <div class="case__credit"><dt data-i18n="case.channels">Channels</dt><dd>Podcast · YouTube · Short-form · Newsletter</dd></div>
+        <div class="case__credit"><dt data-i18n="case.year">Year</dt><dd>2026 · Kwun Tong<span>Basis Media HK</span></dd></div>
       </dl>
 
       <div class="stats reveal">
@@ -93,17 +101,17 @@
 
       <div class="next-project">
         <div>
-          <p class="next-project__label">Next project</p>
+          <p class="next-project__label" data-i18n="case.next">Next project</p>
           <a href="sheung-wan-boutique.html"><h2 class="next-project__title">Sheung Wan <em>Boutique</em> →</h2></a>
         </div>
-        <a href="../contact.html" class="btn btn--ghost" data-magnetic>Start a campaign</a>
+        <a href="../contact.html" class="btn btn--ghost" data-magnetic data-i18n="case.start">Start a campaign</a>
       </div>
     </article>
   </main>
 
   <footer class="footer">
     <span>© <span id="year"></span> Basis Media HK</span>
-    <span>AI Creative Marketing Agency.</span>
+    <span data-i18n="footer.agency">AI Creative Marketing Agency.</span>
     <span class="footer__social">
       <a href="#" data-magnetic>Instagram</a>
       <a href="#" data-magnetic>LinkedIn</a>
@@ -116,6 +124,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+  <script src="../i18n.js?v=2" defer></script>
   <script src="../main.js?v=20" defer></script>
 </body>
 </html>

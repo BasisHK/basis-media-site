@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../styles.css?v=26" />
+  <link rel="stylesheet" href="../styles.css?v=28" />
 </head>
 <body>
   <div class="cursor" aria-hidden="true"></div>
@@ -23,22 +23,30 @@
       <span class="nav__mark">◆</span> Basis<span class="nav__thin">Media</span>
     </a>
     <nav class="nav__links" aria-label="Primary">
-      <a href="../work.html" data-magnetic>Work</a>
-      <a href="../index.html#process" data-magnetic>Process</a>
-      <a href="../index.html#services" data-magnetic>Services</a>
-      <a href="../journal.html" data-magnetic>Journal</a>
-      <a href="../about.html" data-magnetic>About</a>
-      <a href="../contact.html" data-magnetic>Contact</a>
+      <a href="../work.html" data-magnetic data-i18n="nav.work">Work</a>
+      <a href="../index.html#process" data-magnetic data-i18n="nav.process">Process</a>
+      <a href="../index.html#services" data-magnetic data-i18n="nav.services">Services</a>
+      <a href="../journal.html" data-magnetic data-i18n="nav.journal">Journal</a>
+      <a href="../about.html" data-magnetic data-i18n="nav.about">About</a>
+      <a href="../contact.html" data-magnetic data-i18n="nav.contact">Contact</a>
     </nav>
-    <a href="../contact.html" class="nav__cta" data-magnetic data-cursor="Talk">Let's talk</a>
-    <button class="nav__burger" id="burger" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__right">
+      <a href="../contact.html" class="nav__cta" data-magnetic data-cursor="Talk" data-i18n="nav.talk">Let's talk</a>
+      <div class="nav__lang" role="group" aria-label="Language">
+        <button type="button" class="nav__lang-btn is-active" data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="nav__lang-sep" aria-hidden="true">/</span>
+        <button type="button" class="nav__lang-btn" data-set-lang="zh" aria-pressed="false">粵</button>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Open menu" data-i18n-aria="nav.menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
   </header>
 
   <main class="subpage" id="top">
     <div class="page-header">
-      <a href="../work.html" class="back-link" data-magnetic>← All work</a>
+      <a href="../work.html" class="back-link" data-magnetic data-i18n="case.back">← All work</a>
       <p class="page-header__eyebrow reveal">04 · Always-on program</p>
       <h1 class="page-header__title reveal">Café <em>collective</em></h1>
       <p class="page-header__intro reveal">A multi-brand always-on marketing program — shared UGC engine, AI variant system and agency governance — for six independent cafés that couldn't fund a full retainer alone.</p>
@@ -52,22 +60,22 @@
 
       <div class="case__body">
         <div class="case__block reveal">
-          <p class="case__label">The challenge</p>
+          <p class="case__label" data-i18n="case.challenge">The challenge</p>
           <p>Six independent cafés from Sai Ying Pun to Tai Hang faced the same marketing bind: too small for a traditional agency retainer, too busy to run social properly, and tired of content that looked like an ad or never posted at all.</p>
           <p>They didn't need another one-off shoot. They needed an always-on system — creative volume, brand consistency and performance review — at a cost they could share.</p>
         </div>
         <div class="case__block reveal">
-          <p class="case__label">The strategy</p>
+          <p class="case__label" data-i18n="case.strategy">The strategy</p>
           <p>Pool the brief. One agency program, six brands, shared creator roster, shared production calendar, split cost. UGC as the creative language because café audiences punish polish; agency process as the operating system because volume without governance is just noise.</p>
           <p>Each café kept its voice. The collective shared infrastructure: briefing templates, asset libraries, AI variant pipelines and a monthly performance kill meeting.</p>
         </div>
         <div class="case__block reveal">
-          <p class="case__label">The campaign</p>
+          <p class="case__label" data-i18n="case.campaign">The campaign</p>
           <p>Quarterly production sprints: six half-day shoots with neighbourhood creators who actually drink there. Vertical, handheld, natural light, bilingual when needed. One strong capture becomes eight platform-native cuts through AI-assisted variants — then humans pick what ships.</p>
           <p>Always-on publishing calendars, light paid boosts on top-performing local posts, and a shared dashboard so owners see what's working without living in Ads Manager. UGC stays the face of the work; the agency runs the marketing machine behind it.</p>
         </div>
         <div class="case__block reveal">
-          <p class="case__label">The results</p>
+          <p class="case__label" data-i18n="case.results">The results</p>
           <p>300+ assets a quarter across the collective. Average engagement 9.2% — roughly triple their previous organic baseline, and above what any single influencer buy had delivered.</p>
           <p>Two of the six opened a second location after the program launched. Correlation, not proof — but both credited the queue.</p>
         </div>
@@ -79,10 +87,10 @@
       </figure>
 
       <dl class="case__credits">
-        <div class="case__credit"><dt>Agency role</dt><dd>Strategy, Creators, Production, Ops</dd></div>
-        <div class="case__credit"><dt>Timeline</dt><dd>Ongoing · quarterly campaign sprints</dd></div>
-        <div class="case__credit"><dt>Channels</dt><dd>UGC · Reels · TikTok · Light paid</dd></div>
-        <div class="case__credit"><dt>Year</dt><dd>2026 · Hong Kong Island<span>Basis Media HK</span></dd></div>
+        <div class="case__credit"><dt data-i18n="case.role">Agency role</dt><dd>Strategy, Creators, Production, Ops</dd></div>
+        <div class="case__credit"><dt data-i18n="case.timeline">Timeline</dt><dd>Ongoing · quarterly campaign sprints</dd></div>
+        <div class="case__credit"><dt data-i18n="case.channels">Channels</dt><dd>UGC · Reels · TikTok · Light paid</dd></div>
+        <div class="case__credit"><dt data-i18n="case.year">Year</dt><dd>2026 · Hong Kong Island<span>Basis Media HK</span></dd></div>
       </dl>
 
       <div class="stats reveal">
@@ -93,17 +101,17 @@
 
       <div class="next-project">
         <div>
-          <p class="next-project__label">Next project</p>
+          <p class="next-project__label" data-i18n="case.next">Next project</p>
           <a href="kowloon-noodle-co.html"><h2 class="next-project__title">Kowloon <em>Noodle Co.</em> →</h2></a>
         </div>
-        <a href="../contact.html" class="btn btn--ghost" data-magnetic>Start a campaign</a>
+        <a href="../contact.html" class="btn btn--ghost" data-magnetic data-i18n="case.start">Start a campaign</a>
       </div>
     </article>
   </main>
 
   <footer class="footer">
     <span>© <span id="year"></span> Basis Media HK</span>
-    <span>AI Creative Marketing Agency.</span>
+    <span data-i18n="footer.agency">AI Creative Marketing Agency.</span>
     <span class="footer__social">
       <a href="#" data-magnetic>Instagram</a>
       <a href="#" data-magnetic>LinkedIn</a>
@@ -116,6 +124,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+  <script src="../i18n.js?v=2" defer></script>
   <script src="../main.js?v=20" defer></script>
 </body>
 </html>

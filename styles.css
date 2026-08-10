@@ -1530,3 +1530,45 @@ a.article:hover{transform:translateX(4px)}
 @media (max-width:960px){
   .hero__scroll{display:none}
 }
+
+/* ============ LANGUAGE TOGGLE ============ */
+.nav__right{
+  margin-left:auto;display:flex;align-items:center;gap:10px;
+  position:relative;z-index:2;
+}
+.nav__cta{margin-left:0}
+.nav__lang{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:4px 2px;position:relative;z-index:3;
+  font-family:var(--mono,"Space Mono",ui-monospace,monospace);
+  font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;
+}
+.nav__lang-sep{color:rgba(255,255,255,.28);user-select:none}
+.nav__lang-btn{
+  appearance:none;background:none;border:0;cursor:pointer;
+  color:rgba(247,247,247,.45);padding:8px 6px;margin:0;
+  font:inherit;letter-spacing:inherit;text-transform:inherit;
+  transition:color .3s var(--ease);
+}
+.nav__lang-btn:hover{color:var(--pink)}
+.nav__lang-btn.is-active{color:#fff}
+.nav__lang-btn:focus-visible{outline:2px solid var(--pink);outline-offset:3px;border-radius:4px}
+body.is-zh{font-feature-settings:"kern";letter-spacing:.01em}
+body.is-zh .hero__title,
+body.is-zh .page-header__title,
+body.is-zh .section-title,
+body.is-zh .manifesto__quote,
+body.is-zh .bigstat__quote,
+body.is-zh .cta__title,
+body.is-zh .article__title,
+body.is-zh .work__title{letter-spacing:0;line-height:1.12}
+body.is-zh .hero__meta p,
+body.is-zh .page-header__intro,
+body.is-zh .statement__text,
+body.is-zh .svc__body p,
+body.is-zh .step__body p{line-height:1.7}
+@media (max-width:960px){
+  .nav__right{gap:4px}
+  .nav__lang{margin-right:2px}
+  .nav__lang-btn{padding:10px 6px;min-height:44px}
+}

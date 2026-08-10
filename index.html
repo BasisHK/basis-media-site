@@ -6,7 +6,7 @@
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basis Media HK — AI Creative Marketing Agency</title>
+  <title data-i18n="meta.home">Basis Media HK — AI Creative Marketing Agency</title>
   <meta name="description" content="Basis Media is a Hong Kong AI creative marketing agency. Strategy, campaigns, short-form video, brand films and UGC — built to get seen and convert." />
   <meta property="og:title" content="Basis Media HK — AI Creative Marketing Agency" />
   <meta property="og:description" content="Hong Kong AI creative marketing agency. Strategy, campaigns, short-form, brand films, UGC." />
@@ -14,7 +14,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=26" />
+  <link rel="stylesheet" href="styles.css?v=28" />
 </head>
 <body>
   <div class="cursor" aria-hidden="true"></div>
@@ -32,31 +32,39 @@
       <span class="nav__mark">◆</span> Basis<span class="nav__thin">Media</span>
     </a>
     <nav class="nav__links" id="navlinks" aria-label="Primary">
-      <a href="#work" data-spy="#work" data-magnetic>Work</a>
-      <a href="#process" data-spy="#process" data-magnetic>Process</a>
-      <a href="#services" data-spy="#services" data-magnetic>Services</a>
-      <a href="journal.html" data-magnetic>Journal</a>
-      <a href="about.html" data-magnetic>About</a>
-      <a href="contact.html" data-magnetic>Contact</a>
+      <a href="#work" data-spy="#work" data-magnetic data-i18n="nav.work">Work</a>
+      <a href="#process" data-spy="#process" data-magnetic data-i18n="nav.process">Process</a>
+      <a href="#services" data-spy="#services" data-magnetic data-i18n="nav.services">Services</a>
+      <a href="journal.html" data-magnetic data-i18n="nav.journal">Journal</a>
+      <a href="about.html" data-magnetic data-i18n="nav.about">About</a>
+      <a href="contact.html" data-magnetic data-i18n="nav.contact">Contact</a>
     </nav>
-    <a href="contact.html" class="nav__cta" data-magnetic data-cursor="Talk">Let's talk</a>
-    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks">
-      <span></span><span></span><span></span>
-    </button>
+    <div class="nav__right">
+      <a href="contact.html" class="nav__cta" data-magnetic data-cursor="Talk" data-i18n="nav.talk">Let's talk</a>
+      <div class="nav__lang" role="group" aria-label="Language">
+        <button type="button" class="nav__lang-btn is-active" data-set-lang="en" aria-pressed="true">EN</button>
+        <span class="nav__lang-sep" aria-hidden="true">/</span>
+        <button type="button" class="nav__lang-btn" data-set-lang="zh" aria-pressed="false">粵</button>
+      </div>
+      <button class="nav__burger" id="burger" aria-label="Open menu" data-i18n-aria="nav.menu" aria-expanded="false" aria-controls="navlinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
   </header>
 
   <!-- Fullscreen menu overlay -->
   <div class="menu" id="menu" aria-hidden="true">
     <nav class="menu__inner" aria-label="Mobile">
-      <a href="#work" class="menu__link">Work</a>
-      <a href="#process" class="menu__link">Process</a>
-      <a href="#services" class="menu__link">Services</a>
-      <a href="journal.html" class="menu__link">Journal</a>
-      <a href="about.html" class="menu__link">About</a>
-      <a href="contact.html" class="menu__link">Contact</a>
-      <a href="contact.html" class="menu__cta">Let's talk →</a>
+      <a href="#work" class="menu__link" data-i18n="nav.work">Work</a>
+      <a href="#process" class="menu__link" data-i18n="nav.process">Process</a>
+      <a href="#services" class="menu__link" data-i18n="nav.services">Services</a>
+      <a href="journal.html" class="menu__link" data-i18n="nav.journal">Journal</a>
+      <a href="about.html" class="menu__link" data-i18n="nav.about">About</a>
+      <a href="contact.html" class="menu__link" data-i18n="nav.contact">Contact</a>
+      <a href="contact.html" class="menu__cta" data-i18n="nav.talkArrow">Let's talk →</a>
     </nav>
-    <div class="menu__foot">Hong Kong · AI Creative Marketing Agency · 香港</div>
+    <div class="menu__foot" data-i18n="menu.foot">Hong Kong · AI Creative Marketing Agency · 香港</div>
   </div>
 
   <!-- Hero -->
@@ -65,27 +73,27 @@
       <canvas class="hero__canvas" aria-hidden="true"></canvas>
       <div class="hero__grain" aria-hidden="true"></div>
       <div class="hero__glow" aria-hidden="true"></div>
-      <p class="hero__eyebrow reveal">Hong Kong · AI Creative Marketing Agency · 香港</p>
-      <h1 class="hero__title">
+      <p class="hero__eyebrow reveal" data-i18n="hero.eyebrow">Hong Kong · AI Creative Marketing Agency · 香港</p>
+      <h1 class="hero__title" data-i18n-html="hero.title">
         <span class="line"><span class="w">AI</span> <span class="w">marketing</span></span>
         <span class="line"><span class="w">that</span> <span class="w accent">actually</span></span>
         <span class="line"><span class="w accent">gets</span> <span class="w">seen.</span></span>
       </h1>
       <div class="hero__meta reveal">
-        <p>We're a Hong Kong AI creative marketing agency — strategy, campaigns and content systems that move brands. Short-form, brand films, paid creative and UGC, directed by people who know the city.</p>
-        <a href="#work" class="btn btn--ghost" data-magnetic>See the work ↓</a>
+        <p data-i18n="hero.body">We're a Hong Kong AI creative marketing agency — strategy, campaigns and content systems that move brands. Short-form, brand films, paid creative and UGC, directed by people who know the city.</p>
+        <a href="#work" class="btn btn--ghost" data-magnetic data-i18n="hero.cta">See the work ↓</a>
       </div>
       <div class="marquee" aria-hidden="true">
         <div class="marquee__track">
           <span>AI strategy</span><span>◆</span><span>Creative campaigns</span><span>◆</span><span>Short-form</span><span>◆</span><span>Brand films</span><span>◆</span><span>UGC</span><span>◆</span><span>Paid social</span><span>◆</span><span>AI strategy</span><span>◆</span><span>Creative campaigns</span><span>◆</span><span>Short-form</span><span>◆</span><span>Brand films</span><span>◆</span><span>UGC</span><span>◆</span><span>Paid social</span><span>◆</span>
         </div>
       </div>
-      <div class="hero__scroll" aria-hidden="true"><span>Scroll</span><i></i></div>
+      <div class="hero__scroll" aria-hidden="true"><span data-i18n="hero.scroll">Scroll</span><i></i></div>
     </section>
 
     <!-- Intro / scroll narrative -->
     <section class="statement" id="about">
-      <p class="statement__text">
+      <p class="statement__text" data-i18n-html="statement.html">
         <span class="reveal-word">Most</span> <span class="reveal-word">marketing</span> <span class="reveal-word">gets</span> <span class="reveal-word">ignored.</span>
         <span class="reveal-word accent">We</span> <span class="reveal-word accent">build</span> <span class="reveal-word accent">creative</span> <span class="reveal-word accent">people</span> <span class="reveal-word accent">actually</span> <span class="reveal-word accent">stop</span> <span class="reveal-word accent">for</span> <span class="reveal-word accent">—</span> <span class="reveal-word accent">and</span> <span class="reveal-word accent">act</span> <span class="reveal-word accent">on.</span>
       </p>
@@ -93,16 +101,16 @@
 
     <!-- Capabilities strip -->
     <section class="caps" id="capabilities" aria-label="What sets us apart">
-      <p class="caps__eyebrow reveal">What sets us apart</p>
+      <p class="caps__eyebrow reveal" data-i18n="caps.eyebrow">What sets us apart</p>
       <ul class="caps__list reveal">
-        <li class="cap">AI creative marketing</li>
-        <li class="cap">Strategy + production</li>
-        <li class="cap">Hong Kong-made</li>
-        <li class="cap">Founder-led</li>
-        <li class="cap">Bilingual 中英</li>
-        <li class="cap">Performance-minded</li>
+        <li class="cap" data-i18n="caps.1">AI creative marketing</li>
+        <li class="cap" data-i18n="caps.2">Strategy + production</li>
+        <li class="cap" data-i18n="caps.3">Hong Kong-made</li>
+        <li class="cap" data-i18n="caps.4">Founder-led</li>
+        <li class="cap" data-i18n="caps.5">Bilingual 中英</li>
+        <li class="cap" data-i18n="caps.6">Performance-minded</li>
       </ul>
-      <p class="caps__trust reveal">Trusted by <strong>Kowloon Noodle Co.</strong> · <strong>ÓNA</strong> · <strong>Pho Bay</strong> · <strong>SPICE</strong> · and six independent cafés across Hong Kong Island.</p>
+      <p class="caps__trust reveal" data-i18n-html="caps.trust">Trusted by <strong>Kowloon Noodle Co.</strong> · <strong>ÓNA</strong> · <strong>Pho Bay</strong> · <strong>SPICE</strong> · and six independent cafés across Hong Kong Island.</p>
     </section>
 
     <!-- Client marquee -->
@@ -122,8 +130,8 @@
     <!-- Work -->
     <section class="work" id="work">
       <div class="section-head reveal">
-        <h2 class="section-title">Selected <em>work</em></h2>
-        <p class="section-sub">Agency campaigns and programs — strategy through creative, measured in results.</p>
+        <h2 class="section-title" data-i18n-html="work.head">Selected <em>work</em></h2>
+        <p class="section-sub" data-i18n="work.sub">Agency campaigns and programs — strategy through creative, measured in results.</p>
       </div>
 
       <div class="works">
@@ -131,12 +139,12 @@
           <span class="work__num" aria-hidden="true">01</span>
           <a href="work/kowloon-noodle-co.html" class="work__media" data-tilt data-cursor="View" style="--c1:#ff2e93;--c2:#7a1550;">
             <img class="work__img" src="work-1.jpg" alt="Campaign shoot at Kowloon Noodle Co. in Sham Shui Po" width="800" height="500" loading="eager" decoding="async" data-parallax-img />
-            <span class="work__tag">Growth campaign</span>
+            <span class="work__tag" data-i18n="work.1.tag">Growth campaign</span>
           </a>
           <div class="work__caption">
-            <h3 class="work__title"><a href="work/kowloon-noodle-co.html">Kowloon Noodle Co.</a></h3>
-            <p>Weekend demand campaign: creative platform, 12-asset short-form system and organic-to-paid growth that filled a Sham Shui Po institution.</p>
-            <span class="work__stat">2.4M reach · +180% weekend covers</span>
+            <h3 class="work__title"><a href="work/kowloon-noodle-co.html" data-i18n-html="work.1.title">Kowloon Noodle Co.</a></h3>
+            <p data-i18n="work.1.body">Weekend demand campaign: creative platform, 12-asset short-form system and organic-to-paid growth that filled a Sham Shui Po institution.</p>
+            <span class="work__stat" data-i18n="work.1.stat">2.4M reach · +180% weekend covers</span>
           </div>
         </article>
 
@@ -144,12 +152,12 @@
           <span class="work__num" aria-hidden="true">02</span>
           <a href="work/youngblood.html" class="work__media" data-tilt data-cursor="View" style="--c1:#b13bff;--c2:#3a1466;">
             <img class="work__img" src="work-2.jpg" alt="Youngblood brand platform campaign session" width="800" height="500" loading="eager" decoding="async" data-parallax-img />
-            <span class="work__tag">Brand platform</span>
+            <span class="work__tag" data-i18n="work.2.tag">Brand platform</span>
           </a>
           <div class="work__caption">
-            <h3 class="work__title"><a href="work/youngblood.html">後生仔講嘢 <em>/ Youngblood</em></a></h3>
-            <p>Bilingual thought-leadership platform — format, campaign packs and distribution that grew founder authority into Top 20 HK Business.</p>
-            <span class="work__stat">Top 20 HK Business · 60k monthly</span>
+            <h3 class="work__title"><a href="work/youngblood.html" data-i18n-html="work.2.title">後生仔講嘢 <em>/ Youngblood</em></a></h3>
+            <p data-i18n="work.2.body">Bilingual thought-leadership platform — format, campaign packs and distribution that grew founder authority into Top 20 HK Business.</p>
+            <span class="work__stat" data-i18n="work.2.stat">Top 20 HK Business · 60k monthly</span>
           </div>
         </article>
 
@@ -157,12 +165,12 @@
           <span class="work__num" aria-hidden="true">03</span>
           <a href="work/sheung-wan-boutique.html" class="work__media" data-tilt data-cursor="View" style="--c1:#ff5ea3;--c2:#5c1030;">
             <img class="work__img" src="work-3.jpg" alt="Sheung Wan boutique launch campaign shoot" width="800" height="500" loading="eager" decoding="async" data-parallax-img />
-            <span class="work__tag">Launch campaign</span>
+            <span class="work__tag" data-i18n="work.3.tag">Launch campaign</span>
           </a>
           <div class="work__caption">
-            <h3 class="work__title"><a href="work/sheung-wan-boutique.html">Sheung Wan <em>Boutique</em></a></h3>
-            <p>Full-funnel product launch: hero film, UGC seeding and paid social that sold out 400 units in 72 hours.</p>
-            <span class="work__stat">Sold out in 72h · 4.1x ROAS</span>
+            <h3 class="work__title"><a href="work/sheung-wan-boutique.html" data-i18n-html="work.3.title">Sheung Wan <em>Boutique</em></a></h3>
+            <p data-i18n="work.3.body">Full-funnel product launch: hero film, UGC seeding and paid social that sold out 400 units in 72 hours.</p>
+            <span class="work__stat" data-i18n="work.3.stat">Sold out in 72h · 4.1x ROAS</span>
           </div>
         </article>
 
@@ -170,12 +178,12 @@
           <span class="work__num" aria-hidden="true">04</span>
           <a href="work/cafe-collective.html" class="work__media" data-tilt data-cursor="View" style="--c1:#ff2e93;--c2:#2a0f3d;">
             <img class="work__img" src="work-4.jpg" alt="Café collective always-on marketing program" width="800" height="500" loading="eager" decoding="async" data-parallax-img />
-            <span class="work__tag">Always-on program</span>
+            <span class="work__tag" data-i18n="work.4.tag">Always-on program</span>
           </a>
           <div class="work__caption">
-            <h3 class="work__title"><a href="work/cafe-collective.html">Café <em>collective</em></a></h3>
-            <p>Multi-brand always-on program — shared UGC engine and agency ops for six cafés that needed marketing, not another one-off shoot.</p>
-            <span class="work__stat">300+ assets · 9.2% avg engagement</span>
+            <h3 class="work__title"><a href="work/cafe-collective.html" data-i18n-html="work.4.title">Café <em>collective</em></a></h3>
+            <p data-i18n="work.4.body">Multi-brand always-on program — shared UGC engine and agency ops for six cafés that needed marketing, not another one-off shoot.</p>
+            <span class="work__stat" data-i18n="work.4.stat">300+ assets · 9.2% avg engagement</span>
           </div>
         </article>
       </div>
@@ -183,13 +191,13 @@
 
     <!-- Manifesto -->
     <section class="manifesto" id="manifesto">
-      <p class="manifesto__eyebrow reveal">Our belief</p>
-      <blockquote class="manifesto__quote">
+      <p class="manifesto__eyebrow reveal" data-i18n="manifesto.eyebrow">Our belief</p>
+      <blockquote class="manifesto__quote" data-i18n-html="manifesto.html">
         <span class="reveal-word">We're</span> <span class="reveal-word">an</span> <span class="reveal-word accent">AI</span> <span class="reveal-word accent">creative</span> <span class="reveal-word accent">marketing</span> <span class="reveal-word accent">agency</span> <span class="reveal-word">—</span>
         <span class="reveal-word">strategy,</span> <span class="reveal-word">campaigns</span> <span class="reveal-word">and</span> <span class="reveal-word">content</span> <span class="reveal-word">systems</span>
         <span class="reveal-word">for</span> <span class="reveal-word">brands</span> <span class="reveal-word">that</span> <span class="reveal-word">need</span> <span class="reveal-word">to</span> <span class="reveal-word">get</span> <span class="reveal-word">seen.</span>
       </blockquote>
-      <p class="manifesto__foot reveal">Human taste. AI speed. Marketing that works in Hong Kong — and travels beyond it.</p>
+      <p class="manifesto__foot reveal" data-i18n="manifesto.foot">Human taste. AI speed. Marketing that works in Hong Kong — and travels beyond it.</p>
     </section>
 
     <!-- Kinetic studio reel — replaces the old empty band -->
@@ -203,29 +211,29 @@
         </div>
         <div class="reel__scan" aria-hidden="true"></div>
         <div class="reel__copy">
-          <p class="reel__eyebrow">Agency reel · 香港製造 · 2026</p>
+          <p class="reel__eyebrow" data-i18n="reel.eyebrow">Agency reel · 香港製造 · 2026</p>
           <h2 class="reel__type">
-            <span class="reel__static">We make it</span>
+            <span class="reel__static" data-i18n="reel.static">We make it</span>
             <span class="reel__cycle" data-cycle='["loud","local","fast","yours","真係得"]'><em>loud</em></span>
           </h2>
-          <p class="reel__note">Strategy in the morning. Creative by the afternoon. A month of marketing assets from a single production day — wherever your brand actually lives.</p>
+          <p class="reel__note" data-i18n="reel.note">Strategy in the morning. Creative by the afternoon. A month of marketing assets from a single production day — wherever your brand actually lives.</p>
         </div>
       </div>
     </section>
 
     <!-- Signature stat band -->
     <section class="bigstat" id="bigstat" aria-label="Studio numbers">
-      <blockquote class="bigstat__quote reveal">“<b>2.4 million views</b> came out&nbsp;of one noodle shop in Sham Shui Po.”</blockquote>
+      <blockquote class="bigstat__quote reveal" data-i18n-html="bigstat.quote">“<b>2.4 million views</b> came out&nbsp;of one noodle shop in Sham Shui Po.”</blockquote>
       <div class="numbers reveal" aria-label="Studio numbers">
-        <div class="number"><div class="number__num" data-count-to="2.4" data-decimals="1" data-suffix="M">2.4M</div><div class="number__label">Views from one noodle shop</div></div>
-        <div class="number"><div class="number__num" data-count-to="180" data-prefix="+" data-suffix="%">+180%</div><div class="number__label">Weekend covers, sustained</div></div>
-        <div class="number"><div class="number__num" data-count-to="12" data-suffix="">12</div><div class="number__label">Videos from one shoot day</div></div>
+        <div class="number"><div class="number__num" data-count-to="2.4" data-decimals="1" data-suffix="M">2.4M</div><div class="number__label" data-i18n="bigstat.n1">Views from one noodle shop</div></div>
+        <div class="number"><div class="number__num" data-count-to="180" data-prefix="+" data-suffix="%">+180%</div><div class="number__label" data-i18n="bigstat.n2">Weekend covers, sustained</div></div>
+        <div class="number"><div class="number__num" data-count-to="12" data-suffix="">12</div><div class="number__label" data-i18n="bigstat.n3">Videos from one shoot day</div></div>
       </div>
       <dl class="bigstat__meta reveal">
-        <div><dt>Client</dt><dd>Kowloon Noodle Co.</dd></div>
-        <div><dt>Shoot time</dt><dd>1 day</dd></div>
-        <div><dt>Videos cut</dt><dd>12</dd></div>
-        <div><dt>Weekend covers</dt><dd>+180%</dd></div>
+        <div><dt data-i18n="bigstat.client">Client</dt><dd>Kowloon Noodle Co.</dd></div>
+        <div><dt data-i18n="bigstat.shoot">Shoot time</dt><dd data-i18n="bigstat.day">1 day</dd></div>
+        <div><dt data-i18n="bigstat.videos">Videos cut</dt><dd>12</dd></div>
+        <div><dt data-i18n="bigstat.covers">Weekend covers</dt><dd>+180%</dd></div>
       </dl>
       <div class="bigstat__marquee" aria-hidden="true">
         <div class="bigstat__track">
@@ -238,40 +246,40 @@
     <!-- Process / How we work -->
     <section class="process" id="process">
       <div class="section-head reveal">
-        <h2 class="section-title">How we <em>work</em></h2>
-        <p class="section-sub">An agency process built for speed — from positioning to creative that performs, usually in under three weeks.</p>
+        <h2 class="section-title" data-i18n-html="process.head">How we <em>work</em></h2>
+        <p class="section-sub" data-i18n="process.sub">An agency process built for speed — from positioning to creative that performs, usually in under three weeks.</p>
       </div>
       <ol class="process__list">
         <li class="step reveal">
           <span class="step__no">01</span>
           <div class="step__body">
-            <h3>Strategy</h3>
-            <p>We start with the marketing problem, not a content wishlist. Audience, offer, channels, competitive noise — then the one sharp idea worth building a campaign around. Street-level insight meets AI research speed.</p>
-            <span class="step__note">Deliverable — a one-page creative marketing brief.</span>
+            <h3 data-i18n="process.1.t">Strategy</h3>
+            <p data-i18n="process.1.b">We start with the marketing problem, not a content wishlist. Audience, offer, channels, competitive noise — then the one sharp idea worth building a campaign around. Street-level insight meets AI research speed.</p>
+            <span class="step__note" data-i18n="process.1.n">Deliverable — a one-page creative marketing brief.</span>
           </div>
         </li>
         <li class="step reveal">
           <span class="step__no">02</span>
           <div class="step__body">
-            <h3>AI creative direction</h3>
-            <p>AI is our production accelerator, not our creative director. We generate concepts, hooks and variants at volume, then a human kills almost all of them. Speed on the machine side, taste and brand judgement on ours.</p>
-            <span class="step__note">Deliverable — concepts, hooks &amp; campaign frames in 72 hours.</span>
+            <h3 data-i18n="process.2.t">AI creative direction</h3>
+            <p data-i18n="process.2.b">AI is our production accelerator, not our creative director. We generate concepts, hooks and variants at volume, then a human kills almost all of them. Speed on the machine side, taste and brand judgement on ours.</p>
+            <span class="step__note" data-i18n="process.2.n">Deliverable — concepts, hooks &amp; campaign frames in 72 hours.</span>
           </div>
         </li>
         <li class="step reveal">
           <span class="step__no">03</span>
           <div class="step__body">
-            <h3>Produce</h3>
-            <p>Campaign films, short-form systems, UGC and bilingual assets — shot lean, cut platform-native, designed for both organic and paid. One production day can feed a month of marketing.</p>
-            <span class="step__note">Deliverable — a campaign kit + always-on content pack.</span>
+            <h3 data-i18n="process.3.t">Produce</h3>
+            <p data-i18n="process.3.b">Campaign films, short-form systems, UGC and bilingual assets — shot lean, cut platform-native, designed for both organic and paid. One production day can feed a month of marketing.</p>
+            <span class="step__note" data-i18n="process.3.n">Deliverable — a campaign kit + always-on content pack.</span>
           </div>
         </li>
         <li class="step reveal">
           <span class="step__no">04</span>
           <div class="step__body">
-            <h3>Grow</h3>
-            <p>Publishing isn't the finish line. We distribute, read retention and performance, re-cut winners, and feed paid with creative that already proved itself organically. Marketing as a system you tune.</p>
-            <span class="step__note">Deliverable — monthly reporting a human actually explains.</span>
+            <h3 data-i18n="process.4.t">Grow</h3>
+            <p data-i18n="process.4.b">Publishing isn't the finish line. We distribute, read retention and performance, re-cut winners, and feed paid with creative that already proved itself organically. Marketing as a system you tune.</p>
+            <span class="step__note" data-i18n="process.4.n">Deliverable — monthly reporting a human actually explains.</span>
           </div>
         </li>
       </ol>
@@ -280,40 +288,40 @@
     <!-- Services -->
     <section class="services" id="services">
       <div class="section-head reveal">
-        <h2 class="section-title">What we <em>do</em></h2>
-        <p class="section-sub">Full-stack AI creative marketing — strategy through production, including UGC.</p>
+        <h2 class="section-title" data-i18n-html="services.head">What we <em>do</em></h2>
+        <p class="section-sub" data-i18n="services.sub">Full-stack AI creative marketing — strategy through production, including UGC.</p>
       </div>
       <ul class="svc-list">
         <li class="svc reveal">
           <span class="svc__no">01</span>
           <div class="svc__media"><img src="work-3.jpg" alt="Creative strategy session for a Hong Kong brand campaign" width="1200" height="800" decoding="async" loading="lazy"></div>
           <div class="svc__body">
-            <h3>AI creative strategy</h3>
-            <p>Positioning, campaign platforms and channel plans — accelerated with AI research, decided by humans who know what Hong Kong will actually stop for.</p>
+            <h3 data-i18n="services.1.t">AI creative strategy</h3>
+            <p data-i18n="services.1.b">Positioning, campaign platforms and channel plans — accelerated with AI research, decided by humans who know what Hong Kong will actually stop for.</p>
           </div>
         </li>
         <li class="svc reveal">
           <span class="svc__no">02</span>
           <div class="svc__media"><img src="work-1.jpg" alt="Short-form video production in a Sham Shui Po noodle shop" width="1200" height="800" decoding="async" loading="lazy"></div>
           <div class="svc__body">
-            <h3>Short-form &amp; social systems</h3>
-            <p>TikTok, Reels, Shorts and always-on social engines — hook-first creative built to stop the scroll, travel, and feed paid.</p>
+            <h3 data-i18n="services.2.t">Short-form &amp; social systems</h3>
+            <p data-i18n="services.2.b">TikTok, Reels, Shorts and always-on social engines — hook-first creative built to stop the scroll, travel, and feed paid.</p>
           </div>
         </li>
         <li class="svc reveal">
           <span class="svc__no">03</span>
           <div class="svc__media"><img src="work-2.jpg" alt="Brand campaign and content system production in Hong Kong" width="1200" height="800" decoding="async" loading="lazy"></div>
           <div class="svc__body">
-            <h3>Brand campaigns</h3>
-            <p>From concept to hero film to paid rollout — including podcasts and long-form when the brand needs a deeper content system.</p>
+            <h3 data-i18n="services.3.t">Brand campaigns</h3>
+            <p data-i18n="services.3.b">From concept to hero film to paid rollout — including podcasts and long-form when the brand needs a deeper content system.</p>
           </div>
         </li>
         <li class="svc reveal">
           <span class="svc__no">04</span>
           <div class="svc__media"><img src="work-4.jpg" alt="Café UGC creator filming content" width="1200" height="800" decoding="async" loading="lazy"></div>
           <div class="svc__body">
-            <h3>UGC &amp; creator programs</h3>
-            <p>Creator-style content at marketing scale — authentic UGC that converts, without the influencer price tag.</p>
+            <h3 data-i18n="services.4.t">UGC &amp; creator programs</h3>
+            <p data-i18n="services.4.b">Creator-style content at marketing scale — authentic UGC that converts, without the influencer price tag.</p>
           </div>
         </li>
       </ul>
@@ -322,28 +330,28 @@
     <!-- From the journal -->
     <section class="jstrip" id="journal" aria-label="From the journal">
       <div class="jstrip__head">
-        <p class="jstrip__eyebrow reveal">From the journal · 我哋寫嘅嘢</p>
-        <a href="journal.html" class="jstrip__more reveal" data-magnetic>Read all →</a>
+        <p class="jstrip__eyebrow reveal" data-i18n="jstrip.eyebrow">From the journal · 我哋寫嘅嘢</p>
+        <a href="journal.html" class="jstrip__more reveal" data-magnetic data-i18n="jstrip.more">Read all →</a>
       </div>
       <ul class="jstrip__grid">
-        <li class="reveal"><h3>Why your restaurant's TikTok should look like a mistake</h3><p>Polished food film is invisible. Shaky, loud and slightly wrong is what gets sent to the group chat.</p><span class="t">4 min read</span></li>
-        <li class="reveal"><h3>AI doesn't make content — it makes volume</h3><p>The machine gives you fifty cuts. Taste is still the only thing deciding which one ships.</p><span class="t">6 min read</span></li>
-        <li class="reveal"><h3>The 9-second rule for Hong Kong short-form</h3><p>MTR-length attention. What we've learned about the beat where HK viewers decide to stay.</p><span class="t">5 min read</span></li>
+        <li class="reveal"><h3 data-i18n="jstrip.1.t">Why your restaurant's TikTok should look like a mistake</h3><p data-i18n="jstrip.1.b">Polished food film is invisible. Shaky, loud and slightly wrong is what gets sent to the group chat.</p><span class="t" data-i18n="jstrip.1.read">4 min read</span></li>
+        <li class="reveal"><h3 data-i18n="jstrip.2.t">AI doesn't make content — it makes volume</h3><p data-i18n="jstrip.2.b">The machine gives you fifty cuts. Taste is still the only thing deciding which one ships.</p><span class="t" data-i18n="jstrip.2.read">6 min read</span></li>
+        <li class="reveal"><h3 data-i18n="jstrip.3.t">The 9-second rule for Hong Kong short-form</h3><p data-i18n="jstrip.3.b">MTR-length attention. What we've learned about the beat where HK viewers decide to stay.</p><span class="t" data-i18n="jstrip.3.read">5 min read</span></li>
       </ul>
     </section>
 
     <!-- CTA / Contact -->
     <section class="cta" id="contact">
-      <h2 class="cta__title">Let's build marketing<br /><span class="accent">worth watching.</span></h2>
-      <p class="cta__sub">Tell us about your brand. We'll tell you the campaign we'd run.</p>
-      <a href="contact.html" class="btn btn--big" data-magnetic data-cursor="Talk">Contact us →</a>
-      <p class="cta__loc">Based in Hong Kong · Working everywhere · 香港製造</p>
+      <h2 class="cta__title" data-i18n-html="cta.title">Let's build marketing<br /><span class="accent">worth watching.</span></h2>
+      <p class="cta__sub" data-i18n="cta.sub">Tell us about your brand. We'll tell you the campaign we'd run.</p>
+      <a href="contact.html" class="btn btn--big" data-magnetic data-cursor="Talk" data-i18n="cta.btn">Contact us →</a>
+      <p class="cta__loc" data-i18n="cta.loc">Based in Hong Kong · Working everywhere · 香港製造</p>
     </section>
   </main>
 
   <footer class="footer">
     <span>© <span id="year"></span> Basis Media HK</span>
-    <span><a href="journal.html" data-magnetic>Journal</a> · AI Creative Marketing Agency.</span>
+    <span><a href="journal.html" data-magnetic data-i18n="nav.journal">Journal</a> · <span data-i18n="footer.agency">AI Creative Marketing Agency.</span></span>
     <span class="footer__social">
       <a href="#" data-magnetic>Instagram</a>
       <a href="#" data-magnetic>LinkedIn</a>
@@ -356,6 +364,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
+  <script src="i18n.js?v=2" defer></script>
   <script src="main.js?v=20" defer></script>
 </body>
 </html>
