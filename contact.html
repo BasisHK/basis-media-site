@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,200..900;1,9..144,200..900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=28" />
+  <link rel="stylesheet" href="styles.css?v=31" />
 </head>
 <body>
   <div class="cursor" aria-hidden="true"></div>
@@ -79,7 +79,7 @@
         </aside>
       </div>
 
-      <form class="contact__form reveal" id="contact-form" action="mailto:business@basis.hk" method="post" enctype="text/plain">
+      <form class="contact__form reveal" id="contact-form" action="/api/contact" method="post" novalidate>
         <p class="contact__label" data-i18n="contact.formLabel">Or send a short brief</p>
         <div class="contact__fields">
           <label class="contact__field">
@@ -98,9 +98,15 @@
             <span data-i18n="contact.achieve">What are you trying to achieve?</span>
             <textarea name="brief" rows="5" required placeholder="Launch, growth, always-on, UGC — a few lines is enough." data-i18n-placeholder="contact.ph.brief"></textarea>
           </label>
+          <!-- honeypot -->
+          <label class="contact__hp" aria-hidden="true">
+            <span>Website</span>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
         </div>
-        <button type="submit" class="btn btn--big" data-magnetic data-i18n="contact.send">Send brief →</button>
-        <p class="contact__form-note" data-i18n="contact.formNote">Opens your email app addressed to business@basis.hk. Prefer WhatsApp-speed? Email still works best for briefs.</p>
+        <button type="submit" class="btn btn--big" data-magnetic data-i18n="contact.send" id="contact-submit">Send brief →</button>
+        <p class="contact__form-note" data-i18n="contact.formNote">Sends securely to business@basis.hk. We'll reply within one business day.</p>
+        <p class="contact__status" id="contact-status" role="status" aria-live="polite" hidden></p>
       </form>
 
       <ul class="contact__checklist reveal" aria-label="What to include">
@@ -126,27 +132,79 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js" defer></script>
-  <script src="i18n.js?v=2" defer></script>
+  <script src="i18n.js?v=5" defer></script>
   <script src="main.js?v=20" defer></script>
   <script>
     (function () {
       var form = document.getElementById("contact-form");
+      var statusEl = document.getElementById("contact-status");
+      var submitBtn = document.getElementById("contact-submit");
       if (!form) return;
+
+      function t(key, fallback) {
+        try {
+          if (window.BasisI18n) return window.BasisI18n.t(window.BasisI18n.getLang(), key);
+        } catch (e) {}
+        return fallback;
+      }
+
+      function setStatus(type, message) {
+        if (!statusEl) return;
+        statusEl.hidden = !message;
+        statusEl.textContent = message || "";
+        statusEl.className = "contact__status" + (type ? " contact__status--" + type : "");
+      }
+
       form.addEventListener("submit", function (e) {
         e.preventDefault();
         var data = new FormData(form);
-        var name = (data.get("name") || "").toString().trim();
-        var email = (data.get("email") || "").toString().trim();
-        var brand = (data.get("brand") || "").toString().trim();
-        var brief = (data.get("brief") || "").toString().trim();
-        var subject = encodeURIComponent("Brief" + (brand ? " — " + brand : "") + " · Basis Media");
-        var body = encodeURIComponent(
-          "Name: " + name + "\n" +
-          "Email: " + email + "\n" +
-          "Brand: " + (brand || "—") + "\n\n" +
-          brief
-        );
-        window.location.href = "mailto:business@basis.hk?subject=" + subject + "&body=" + body;
+        var payload = {
+          name: (data.get("name") || "").toString().trim(),
+          email: (data.get("email") || "").toString().trim(),
+          brand: (data.get("brand") || "").toString().trim(),
+          brief: (data.get("brief") || "").toString().trim(),
+          website: (data.get("website") || "").toString().trim()
+        };
+
+        if (!payload.name || !payload.email || !payload.brief) {
+          setStatus("error", t("contact.err.required", "Please fill in name, email, and brief."));
+          return;
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.setAttribute("aria-busy", "true");
+        }
+        setStatus("pending", t("contact.sending", "Sending…"));
+
+        fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload)
+        })
+          .then(function (res) {
+            return res.json().then(function (json) {
+              return { ok: res.ok && json && json.ok, json: json, status: res.status };
+            });
+          })
+          .then(function (result) {
+            if (result.ok) {
+              form.reset();
+              setStatus("success", t("contact.success", "Brief sent. We'll get back within one business day."));
+            } else {
+              var msg = (result.json && result.json.error) || t("contact.err.send", "Could not send. Please email business@basis.hk.");
+              setStatus("error", msg);
+            }
+          })
+          .catch(function () {
+            setStatus("error", t("contact.err.send", "Could not send. Please email business@basis.hk."));
+          })
+          .finally(function () {
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.removeAttribute("aria-busy");
+            }
+          });
       });
     })();
   </script>

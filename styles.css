@@ -1474,6 +1474,17 @@ body{
 }
 .contact__form .btn{justify-self:start;margin-top:8px}
 .contact__form-note{color:var(--ink-dim);font-size:.88rem;max-width:48ch}
+.contact__hp{
+  position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;
+  overflow:hidden!important;opacity:0!important;pointer-events:none!important;
+}
+.contact__status{
+  margin:14px 0 0;font-size:.95rem;max-width:48ch;line-height:1.45;
+}
+.contact__status--pending{color:rgba(247,247,247,.7)}
+.contact__status--success{color:#7dffa0}
+.contact__status--error{color:#ff8f9f}
+.contact__form .btn[disabled]{opacity:.55;cursor:wait;pointer-events:none}
 
 .contact__checklist{
   list-style:none;display:grid;grid-template-columns:repeat(3,1fr);
