@@ -101,7 +101,9 @@
     menu.classList.remove("open");
     menu.setAttribute("aria-hidden", "true");
     burger.setAttribute("aria-expanded", "false");
-    burger.setAttribute("aria-label", "Open menu");
+    burger.setAttribute("aria-label", (window.BasisI18n && window.BasisI18n.t)
+      ? window.BasisI18n.t(window.BasisI18n.getLang(), "nav.menu")
+      : "Menu");
     document.body.style.overflow = "";
   }
   function openMenu() {
@@ -110,7 +112,9 @@
     menu.classList.add("open");
     menu.setAttribute("aria-hidden", "false");
     burger.setAttribute("aria-expanded", "true");
-    burger.setAttribute("aria-label", "Close menu");
+    burger.setAttribute("aria-label", (window.BasisI18n && window.BasisI18n.t)
+      ? window.BasisI18n.t(window.BasisI18n.getLang(), "nav.menuClose")
+      : "Close");
     document.body.style.overflow = "hidden";
   }
   if (burger && nav && menu) {

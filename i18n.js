@@ -13,7 +13,8 @@
       "nav.contact": "Contact",
       "nav.talk": "Let's talk",
       "nav.talkArrow": "Let's talk →",
-      "nav.menu": "Open menu",
+      "nav.menu": "Menu",
+      "nav.menuClose": "Close",
       "menu.foot": "Hong Kong · AI Creative Marketing Agency · 香港",
 
       "hero.eyebrow": "Hong Kong · AI Creative Marketing Agency · 香港",
@@ -236,7 +237,8 @@
       "nav.contact": "聯絡",
       "nav.talk": "傾吓先",
       "nav.talkArrow": "傾吓先 →",
-      "nav.menu": "打開選單",
+      "nav.menu": "選單",
+      "nav.menuClose": "關閉",
       "menu.foot": "香港 · AI 創意行銷公司 · Hong Kong",
 
       "hero.eyebrow": "香港 · AI 創意行銷公司 · Hong Kong",
