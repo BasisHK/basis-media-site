@@ -602,15 +602,16 @@ body.loaded .page-veil{transform:translateY(-100%);transition:transform 1s var(-
 
 /* D) signature homepage stat band */
 .bigstat{
-  position:relative;overflow:hidden;
+  position:relative;overflow:visible;
   max-width:var(--maxw);margin:0 auto;
   padding:clamp(60px,10vw,130px) clamp(18px,5vw,60px);
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);
 }
 .bigstat__quote{
   font-family:var(--serif);font-style:italic;font-weight:300;
-  font-size:clamp(2.1rem,6.4vw,5.2rem);line-height:1.02;letter-spacing:-.03em;
-  max-width:16ch;position:relative;padding-left:clamp(18px,3vw,40px);
+  font-size:clamp(2.1rem,6.4vw,5.2rem);line-height:1.12;letter-spacing:-.02em;
+  max-width:min(22ch,100%);position:relative;padding-left:clamp(18px,3vw,40px);
+  padding-right:.12em;overflow:visible;
 }
 .bigstat__quote::before{content:"";position:absolute;left:0;top:.12em;bottom:.12em;width:3px;background:var(--pink)}
 .bigstat__quote b{font-weight:300;color:var(--pink);font-style:italic}
