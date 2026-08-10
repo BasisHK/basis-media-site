@@ -31,7 +31,8 @@
       "caps.4": "Founder-led",
       "caps.5": "Bilingual 中英",
       "caps.6": "Performance-minded",
-      "caps.trust": "Trusted by <strong>Kowloon Noodle Co.</strong> · <strong>ÓNA</strong> · <strong>Pho Bay</strong> · <strong>SPICE</strong> · and six independent cafés across Hong Kong Island.",
+      "caps.trust": "Trusted by <strong>Tech Data</strong> · <strong>a tavola</strong> · <strong>ÓNA</strong> · <strong>Pho Bay</strong> · <strong>SPICE</strong> · and brands across Hong Kong.",
+      "clients.eyebrow": "Clients we've worked with",
 
       "work.head": "Selected <em>work</em>",
       "work.sub": "Agency campaigns and programs — strategy through creative, measured in results.",
@@ -247,7 +248,8 @@
       "caps.4": "創辦人主導",
       "caps.5": "雙語 中英",
       "caps.6": "講求成效",
-      "caps.trust": "合作過 <strong>Kowloon Noodle Co.</strong> · <strong>ÓNA</strong> · <strong>Pho Bay</strong> · <strong>SPICE</strong> · 同港島六間獨立咖啡店。",
+      "caps.trust": "合作過 <strong>Tech Data</strong> · <strong>a tavola</strong> · <strong>ÓNA</strong> · <strong>Pho Bay</strong> · <strong>SPICE</strong> · 同香港多個品牌。",
+      "clients.eyebrow": "合作過嘅客戶",
 
       "work.head": "精選<em>作品</em>",
       "work.sub": "Agency campaign 同長期計劃 — 由策略做到創意，用結果計數。",
