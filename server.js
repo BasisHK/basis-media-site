@@ -20,6 +20,38 @@ app.disable("x-powered-by");
 app.use(express.json({ limit: "32kb" }));
 app.use(express.urlencoded({ extended: false, limit: "32kb" }));
 
+app.use(function (req, res, next) {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  next();
+});
+
+app.get("/robots.txt", function (req, res) {
+  res.type("text/plain; charset=utf-8");
+  res.sendFile(path.join(root, "robots.txt"));
+});
+app.get("/sitemap.xml", function (req, res) {
+  res.type("application/xml; charset=utf-8");
+  res.sendFile(path.join(root, "sitemap.xml"));
+});
+app.get("/llms.txt", function (req, res) {
+  res.type("text/plain; charset=utf-8");
+  res.sendFile(path.join(root, "llms.txt"));
+});
+app.get("/llms-full.txt", function (req, res) {
+  res.type("text/plain; charset=utf-8");
+  res.sendFile(path.join(root, "llms-full.txt"));
+});
+app.get("/humans.txt", function (req, res) {
+  res.type("text/plain; charset=utf-8");
+  res.sendFile(path.join(root, "humans.txt"));
+});
+app.get("/site.webmanifest", function (req, res) {
+  res.type("application/manifest+json; charset=utf-8");
+  res.sendFile(path.join(root, "site.webmanifest"));
+});
+
 /* Simple in-memory rate limit: 5 requests / IP / 10 minutes */
 const hits = new Map();
 function rateLimited(ip) {
@@ -136,12 +168,17 @@ app.use(express.static(root, {
   setHeaders(res, filePath) {
     if (filePath.endsWith(".html")) {
       res.setHeader("Cache-Control", "no-cache");
+    } else if (/\.(jpg|jpeg|png|webp|svg|ico)$/i.test(filePath)) {
+      res.setHeader("Cache-Control", "public, max-age=604800, immutable");
+    } else if (/\.(css|js)$/i.test(filePath)) {
+      res.setHeader("Cache-Control", "public, max-age=86400");
     }
   }
 }));
 
-app.use((req, res) => {
-  res.status(404).sendFile(path.join(root, "index.html"));
+/* Keep API and known files from falling through to SPA-style index */
+app.use(function (req, res) {
+  res.status(404).type("text/plain").send("Not found");
 });
 
 app.listen(PORT, "0.0.0.0", () => {

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://basis.hk/</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://basis.hk/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://basis.hk/?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://basis.hk/" />
+  </url>
+  <url>
+    <loc>https://basis.hk/work.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://basis.hk/work.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://basis.hk/work.html?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://basis.hk/work.html" />
+  </url>
+  <url>
+    <loc>https://basis.hk/about.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://basis.hk/about.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://basis.hk/about.html?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://basis.hk/about.html" />
+  </url>
+  <url>
+    <loc>https://basis.hk/journal.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://basis.hk/journal.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://basis.hk/journal.html?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://basis.hk/journal.html" />
+  </url>
+  <url>
+    <loc>https://basis.hk/contact.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://basis.hk/contact.html?lang=en" />
+    <xhtml:link rel="alternate" hreflang="zh-HK" href="https://basis.hk/contact.html?lang=zh" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://basis.hk/contact.html" />
+  </url>
+  <url>
+    <loc>https://basis.hk/work/kowloon-noodle-co.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://basis.hk/work/youngblood.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://basis.hk/work/sheung-wan-boutique.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://basis.hk/work/cafe-collective.html</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://basis.hk/llms.txt</loc>
+    <lastmod>2026-08-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
+  </url>
+</urlset>

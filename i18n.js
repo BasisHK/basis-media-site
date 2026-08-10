@@ -451,7 +451,30 @@
     }
   };
 
+  function getLangFromQuery() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      var q = (params.get("lang") || params.get("hl") || "").toLowerCase();
+      if (q === "zh" || q === "zh-hk" || q === "zh_hk" || q === "yue" || q === "cn") return "zh";
+      if (q === "en" || q === "en-hk" || q === "en_hk") return "en";
+    } catch (e) {}
+    return null;
+  }
+
+  function syncLangQuery(lang) {
+    try {
+      var url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+    } catch (e) {}
+  }
+
   function getLang() {
+    var fromQuery = getLangFromQuery();
+    if (fromQuery) {
+      try { localStorage.setItem(STORAGE_KEY, fromQuery); } catch (e) {}
+      return fromQuery;
+    }
     try {
       var stored = localStorage.getItem(STORAGE_KEY);
       if (stored === "zh" || stored === "en") return stored;
@@ -459,9 +482,10 @@
     return "en";
   }
 
-  function setLang(lang) {
+  function setLang(lang, opts) {
     if (lang !== "en" && lang !== "zh") lang = "en";
     try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    if (!opts || opts.updateUrl !== false) syncLangQuery(lang);
     apply(lang);
   }
 

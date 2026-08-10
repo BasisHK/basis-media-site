@@ -1,0 +1,28 @@
+{
+  "name": "Basis Media HK",
+  "short_name": "Basis Media",
+  "description": "Hong Kong AI creative marketing agency — strategy, campaigns, short-form and UGC.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0c0a12",
+  "theme_color": "#0c0a12",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}
