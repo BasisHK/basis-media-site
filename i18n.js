@@ -33,6 +33,8 @@
       "caps.6": "Performance-minded",
       "caps.trust": "Trusted by <strong>Tech Data</strong> · <strong>a tavola</strong> · <strong>ÓNA</strong> · <strong>Pho Bay</strong> · <strong>SPICE</strong> · and brands across Hong Kong.",
       "clients.eyebrow": "Clients we've worked with",
+      "partner.eyebrow": "Our official technical partner",
+      "partner.note": "Platform and commerce infrastructure for campaigns that scale.",
 
       "work.head": "Selected <em>work</em>",
       "work.sub": "Agency campaigns and programs — strategy through creative, measured in results.",
@@ -250,6 +252,8 @@
       "caps.6": "講求成效",
       "caps.trust": "合作過 <strong>Tech Data</strong> · <strong>a tavola</strong> · <strong>ÓNA</strong> · <strong>Pho Bay</strong> · <strong>SPICE</strong> · 同香港多個品牌。",
       "clients.eyebrow": "合作過嘅客戶",
+      "partner.eyebrow": "我哋嘅官方技術合作夥伴",
+      "partner.note": "支援可擴展 campaign 嘅平台同電商基建。",
 
       "work.head": "精選<em>作品</em>",
       "work.sub": "Agency campaign 同長期計劃 — 由策略做到創意，用結果計數。",
