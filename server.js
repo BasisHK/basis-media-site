@@ -6,7 +6,7 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 
-const PORT = Number(process.env.PORT) || 3000;
+const PORT = Number(process.env.PORT) || 8080;
 const TOKEN = process.env.MAILTRAP_API_TOKEN || "";
 const FROM_EMAIL = process.env.MAILTRAP_FROM_EMAIL || "business@basis.hk";
 const FROM_NAME = process.env.MAILTRAP_FROM_NAME || "Basis Media";
