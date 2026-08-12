@@ -1,9 +1,9 @@
-/* Basis Media HK */
-Basis Media — AI Creative Marketing Agency · Hong Kong
-
+/* TEAM */
+Company: Basis
 Contact: business@basis.hk
-Site: https://basis.hk
-Languages: English · 粵語 · 中英
+Location: Hong Kong
 
-Standards: HTML, CSS, JS
-Thanks: GSAP, Lenis, Google Fonts, Mailtrap, Alibaba.com
+/* SITE */
+Standards: HTML5, CSS3
+Components: Operators landing page
+Software: Node.js, Express

@@ -2,7 +2,7 @@
   "name": "basis-media-site",
   "private": true,
   "version": "1.0.0",
-  "description": "Basis Media HK site with Mailtrap contact API",
+  "description": "Basis Operators landing with Mailtrap contact API",
   "scripts": {
     "build": "node scripts/build-public.js",
     "postinstall": "node scripts/build-public.js",

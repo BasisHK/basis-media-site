@@ -1,11 +1,11 @@
 {
-  "name": "Basis Media HK",
-  "short_name": "Basis Media",
-  "description": "Hong Kong AI creative marketing agency — strategy, campaigns, short-form and UGC.",
+  "name": "Basis",
+  "short_name": "Basis",
+  "description": "Asia-first AI Operators for marketing.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0c0a12",
-  "theme_color": "#0c0a12",
+  "background_color": "#000000",
+  "theme_color": "#000000",
   "lang": "en",
   "icons": [
     {

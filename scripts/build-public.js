@@ -9,32 +9,29 @@ const out = path.join(root, "public");
 
 const FILES = [
   "index.html",
+  "consultancy.html",
   "about.html",
   "work.html",
   "journal.html",
   "contact.html",
   "styles.css",
   "main.js",
-  "i18n.js",
   "robots.txt",
   "sitemap.xml",
   "llms.txt",
   "llms-full.txt",
   "humans.txt",
   "site.webmanifest",
+  "og-image.png",
   "og-image.jpg",
   "favicon.svg",
   "favicon.ico",
   "favicon-32.png",
   "favicon-512.png",
-  "apple-touch-icon.png",
-  "work-1.jpg",
-  "work-2.jpg",
-  "work-3.jpg",
-  "work-4.jpg"
+  "apple-touch-icon.png"
 ];
 
-const DIRS = ["clients", "work"];
+const DIRS = ["images", "work"];
 
 function rmrf(p) {
   fs.rmSync(p, { recursive: true, force: true });

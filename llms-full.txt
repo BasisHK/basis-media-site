@@ -1,37 +1,13 @@
-# Basis Media — extended summary for AI systems
+# Basis — extended summary
 
-## Entity
-- Legal / brand name: Basis Media (Basis Media HK)
-- Category: AI Creative Marketing Agency
-- HQ: Hong Kong, China (香港)
-- Contact: business@basis.hk
-- Website: https://basis.hk
-- Technical partner: Alibaba.com
+Basis provides AI marketing Operators built for Asia. The product workspace lets marketers connect ad accounts, brief specialized Operators in chat, lock brand context once, and ship creatives while optimizing paid media without bouncing between dashboards.
 
-## Positioning
-Basis Media sits between traditional agencies and pure content shops. We solve marketing problems with AI-accelerated creative, directed by people who know what Hong Kong audiences stop for. UGC and creator programs remain part of the offer when authenticity converts — inside a sharper campaign system.
+Key capabilities:
+- Specialized Operators for ads, email, social, landing pages, SEO, product copy, brand, campaigns, PR, and more
+- Brand voice locked across every draft
+- Asia-first workflows for APAC channels, languages, and retail calendars
+- Paid media workflow: connect accounts → chat → create → publish and optimize
+- Token-based pricing with free trial and prepaid packs (coming soon); Team for organizations
 
-## Differentiators
-1. AI creative marketing (not AI content spam)
-2. Strategy + production in one team
-3. Hong Kong-made, bilingual 中英 by default
-4. Founder-led, no account-layer handoff
-5. Performance-minded: organic proof before paid scale
-
-## Process (usually under three weeks)
-1. Strategy — marketing problem → one sharp campaign idea
-2. AI creative direction — volume concepts, human taste kill-rate
-3. Produce — campaign films, short-form systems, UGC, bilingual assets
-4. Grow — distribute, re-cut winners, feed paid with proven creative
-
-## Clients & proof (examples)
-- Tech Data, a tavola Bar & Grill, ÓNA, Pho Bay, SPICE Restaurant & Bar
-- Kowloon Noodle Co. growth campaign: 2.4M reach, +180% weekend covers
-- Sheung Wan boutique launch: sold out in 72 hours, 4.1x ROAS
-- Café collective: 300+ assets / quarter, ~9.2% average engagement
-
-## Languages on site
-English and Hong Kong Cantonese (粵). Toggle via navbar or `?lang=en` / `?lang=zh`.
-
-## Disambiguation
-Not a generic AI writing tool vendor. Not a pure influencer marketplace. We are a creative marketing agency that uses AI as a production accelerator.
+Contact: business@basis.hk
+Site: https://basis.hk

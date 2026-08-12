@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Basis Media">
-  <rect width="64" height="64" fill="#ffffff"/>
-  <circle cx="42" cy="44" r="24" fill="#e6e6e6"/>
-  <text x="28" y="46" text-anchor="middle" font-family="Arial Black, Helvetica Neue, Arial, sans-serif" font-weight="900" font-size="50" fill="#000000">B</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Basis">
+  <rect width="64" height="64" fill="#000"/>
+  <text x="32" y="46" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="48" fill="#fff">B</text>
+  <rect x="18" y="29" width="20" height="6" rx="1" fill="#5fc4b0"/>
 </svg>

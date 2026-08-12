@@ -28,7 +28,7 @@ services:
         value: business@basis.hk
         scope: RUN_TIME
       - key: MAILTRAP_FROM_NAME
-        value: Basis Media
+        value: Basis
         scope: RUN_TIME
       - key: MAILTRAP_TO_EMAIL
         value: business@basis.hk
