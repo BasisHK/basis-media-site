@@ -6,16 +6,15 @@
 <title>Basis — Asia-first AI Operators for marketing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#000; --panel:#0c0c0c; --panel-2:#141414;
-    --ink:#ffffff; --mut:rgba(255,255,255,.62); --mut-2:rgba(255,255,255,.40);
-    --accent:#5fc4b0; --accent-2:#7fd4c4; --lime:#c8ff3d;
-    --line:rgba(255,255,255,.14);
-    --serif:"Fraunces",Georgia,"Times New Roman",serif;
+    --bg:#04070a;
+    --ink:#ffffff; --mut:rgba(255,255,255,.66); --mut-2:rgba(255,255,255,.42);
+    --green:#34e89e; --green-2:#10b981; --green-bright:#4ade80; --green-deep:#0b3d2e;
+    --line:rgba(52,211,153,.22);
+    --glass:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
     --sans:"DM Sans",system-ui,-apple-system,sans-serif;
-    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html,body{background:#000;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
@@ -24,91 +23,114 @@
   .slide{
     position:relative;aspect-ratio:16/9;width:100%;
     background:
-      radial-gradient(120% 90% at 88% 6%, rgba(95,196,176,.10), transparent 55%),
-      radial-gradient(120% 100% at 4% 104%, rgba(95,196,176,.08), transparent 52%),
-      #000;
+      radial-gradient(90% 80% at 6% 4%, rgba(74,222,128,.16), transparent 55%),
+      radial-gradient(90% 90% at 96% 100%, rgba(16,185,129,.18), transparent 55%),
+      radial-gradient(60% 50% at 50% 50%, rgba(52,211,153,.05), transparent 70%),
+      #04070a;
     border:1px solid var(--line);border-radius:16px;overflow:hidden;
     padding:42px 56px 40px;
     display:flex;flex-direction:column;justify-content:space-between;
     margin-bottom:22px;page-break-after:always;break-after:page;
   }
+  .slide::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(115deg,rgba(52,211,153,.10),transparent 30%,transparent 70%,rgba(16,185,129,.08))}
 
-  .kicker{font:600 12px/1 var(--mono);letter-spacing:.26em;text-transform:uppercase;color:var(--accent);
+  .kicker{font:600 12px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:var(--green);
     display:inline-flex;align-items:center;gap:10px}
-  .kicker::before{content:"";width:26px;height:1.5px;background:var(--accent);display:inline-block}
-  .serif{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
-  .display{font-family:var(--serif);font-weight:600;line-height:1.0;letter-spacing:-.02em;font-size:clamp(38px,4.4vw,58px)}
-  .display .accent{color:var(--accent);font-style:italic}
+  .kicker::before{content:"";width:26px;height:2px;background:linear-gradient(90deg,var(--green),transparent);display:inline-block;border-radius:2px}
+  .display{font-family:var(--sans);font-weight:700;line-height:1.0;letter-spacing:-.03em;font-size:clamp(38px,4.6vw,60px)}
+  .display .accent{color:var(--green);font-style:normal}
   .lead{color:var(--mut);font-size:clamp(15px,1.12vw,18px);line-height:1.5;max-width:60ch}
-  .footer{display:flex;justify-content:space-between;align-items:center;
-    font:600 11px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--mut-2)}
-  .footer::before{content:"";position:absolute;left:56px;right:56px;bottom:30px;height:1px;background:var(--line)}
+  .footer{display:flex;justify-content:space-between;align-items:center;position:relative;
+    font:600 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mut-2)}
+  .footer::before{content:"";position:absolute;left:0;right:0;top:-14px;height:1px;background:var(--line)}
 
-  .brandmark{position:absolute;top:34px;right:56px;display:flex;align-items:center;gap:9px;z-index:3}
-  .brandmark .b{width:28px;height:28px;border-radius:7px;background:var(--accent);
-    display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:700;color:#000;font-size:17px;line-height:1}
-  .brandmark .t{font-weight:600;font-size:14px;letter-spacing:.02em}
-  .brandmark .t b{font-weight:700}
-  .brandmark .t span{color:var(--mut-2);font-weight:400}
+  /* four-circle logo */
+  .brandmark{position:absolute;top:32px;right:54px;display:flex;align-items:center;gap:11px;z-index:3}
+  .brandmark svg{filter:drop-shadow(0 4px 14px rgba(52,211,153,.45))}
+  .brandmark .t{font-weight:700;font-size:15px;letter-spacing:.01em}
+  .brandmark .t span{color:var(--mut-2);font-weight:500}
 
   .head{flex:0 0 auto}
   .body{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center;min-height:0}
-  .slide.tight .body{justify-content:flex-start;margin-top:22px}
+  .slide.tight .body{justify-content:flex-start;margin-top:20px}
 
   .pill{display:inline-flex;align-items:center;justify-content:center;padding:8px 16px;border-radius:100px;
-    border:1px solid var(--accent);color:var(--ink);font-size:13.5px;font-weight:500}
+    border:1px solid var(--green);color:var(--ink);font-size:13.5px;font-weight:500;
+    background:rgba(52,211,153,.06)}
   .pills{display:flex;flex-wrap:wrap;gap:9px}
 
-  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
-  .step{display:flex;flex-direction:column;gap:4px;padding:13px 16px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03)}
-  .step .h{font-family:var(--serif);font-size:21px;font-weight:600}
+  .glass{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:22px 24px;
+    backdrop-filter:blur(12px);box-shadow:0 18px 50px -28px rgba(52,211,153,.5),inset 0 1px 0 rgba(255,255,255,.08)}
+
+  /* card mockup (Premier-style) */
+  .mock{position:relative;border-radius:14px;padding:16px 18px;min-height:104px;overflow:hidden;
+    background:linear-gradient(120deg,var(--green-bright),var(--green) 38%,#0c2a20 100%);
+    border:1px solid rgba(255,255,255,.16);
+    box-shadow:0 14px 40px -20px rgba(52,211,153,.6)}
+  .mock::after{content:"";position:absolute;inset:0;background:radial-gradient(120% 80% at 85% 115%,rgba(74,222,128,.5),transparent 60%)}
+  .mock .ck{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.92);display:grid;place-items:center;font-size:13px;color:#0b3d2e;font-weight:800}
+  .mock .no{position:absolute;left:18px;bottom:14px;font-weight:700;font-size:17px;letter-spacing:.04em;color:#04241a}
+  .mock .net{position:absolute;right:16px;bottom:12px;width:30px;height:18px}
+  .mock.dim{background:linear-gradient(120deg,#1f5d48,var(--green-deep) 60%,#06140f)}
+  .mock.dim::after{background:radial-gradient(120% 80% at 15% 115%,rgba(74,222,128,.35),transparent 60%)}
+
+  .step{display:flex;flex-direction:column;gap:4px;padding:13px 16px;border-radius:12px;border:1px solid var(--line);
+    background:var(--glass);backdrop-filter:blur(10px)}
+  .step .h{font-weight:700;font-size:20px}
   .step .s{color:var(--mut);font-size:13px}
-  .step.on{background:rgba(95,196,176,.14);border-color:var(--accent);box-shadow:0 12px 34px -18px rgba(95,196,176,.6)}
-  .step.on .s{color:var(--accent-2)}
-  .arrow{color:var(--accent);font-size:20px;text-align:center;line-height:1;margin:3px 0}
+  .step.on{background:linear-gradient(135deg,rgba(52,211,153,.22),rgba(16,185,129,.14));border-color:var(--green);box-shadow:0 12px 34px -18px rgba(52,211,153,.7)}
+  .step.on .s{color:var(--green-bright)}
+  .arrow{color:var(--green);font-size:20px;text-align:center;line-height:1;margin:3px 0}
 
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:22px}
-  .col h4{font:600 12px/1 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+  .col h4{font:600 12px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
   .col.bad h4{color:var(--mut-2)}
   .col ul{list-style:none;display:flex;flex-direction:column}
   .col li{padding:13px 0;border-top:1px solid var(--line);font-size:15.5px;line-height:1.35;color:var(--mut)}
   .col.good li{color:var(--ink)}
 
   .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .feat{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px 20px;display:flex;flex-direction:column;gap:8px}
-  .feat .n{font:600 12px var(--mono);letter-spacing:.1em;color:var(--accent)}
-  .feat .h{font-family:var(--serif);font-size:22px;font-weight:600}
+  .feat{background:var(--glass);border:1px solid var(--line);border-radius:15px;padding:22px 20px;display:flex;flex-direction:column;gap:8px;backdrop-filter:blur(10px);box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+  .feat .n{font:700 12px var(--sans);letter-spacing:.12em;color:var(--green)}
+  .feat .h{font-weight:700;font-size:21px;letter-spacing:-.01em}
   .feat .s{color:var(--mut);font-size:14px;line-height:1.45}
 
   .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .stat{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px 20px}
-  .stat .big{font-family:var(--serif);font-size:clamp(44px,4.6vw,60px);font-weight:600;line-height:1;
-    background:linear-gradient(135deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat{background:var(--glass);border:1px solid var(--line);border-radius:15px;padding:22px 20px;backdrop-filter:blur(10px)}
+  .stat .big{font-weight:700;line-height:1;font-size:clamp(44px,4.6vw,60px);
+    background:linear-gradient(135deg,var(--green-bright),var(--green-2));-webkit-background-clip:text;background-clip:text;color:transparent}
   .stat .lab{color:var(--mut);font-size:13.5px;margin-top:10px;line-height:1.4}
-  .stat .who{margin-top:12px;font:600 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}
+  .stat .who{margin-top:12px;font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--green-bright)}
 
   .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .tier{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:22px 22px;display:flex;flex-direction:column;gap:10px}
-  .tier .name{font-family:var(--serif);font-size:23px;font-weight:600}
-  .tier .big{font-size:28px;font-weight:700}
+  .tier{background:var(--glass);border:1px solid var(--line);border-radius:15px;padding:22px 22px;display:flex;flex-direction:column;gap:10px;backdrop-filter:blur(10px)}
+  .tier .name{font-weight:700;font-size:22px}
+  .tier .big{font-size:28px;font-weight:800}
   .tier .sub{color:var(--mut);font-size:13.5px;line-height:1.45}
-  .tier.feat{border-color:var(--accent);background:rgba(95,196,176,.10)}
-  .tier .tag{align-self:flex-start;font:600 10px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent);border-radius:100px;padding:4px 10px}
+  .tier.feat{border-color:var(--green);background:linear-gradient(160deg,rgba(52,211,153,.16),rgba(16,185,129,.08));box-shadow:0 16px 44px -24px rgba(52,211,153,.6)}
+  .tier .tag{align-self:flex-start;font:600 10px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--green);border:1px solid var(--green);border-radius:100px;padding:4px 10px}
 
   .cta-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:20px}
-  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:100px;font-weight:600;font-size:14.5px;text-decoration:none}
-  .btn.pink{background:var(--accent);color:#000}
-  .btn.ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:100px;font-weight:700;font-size:14.5px;text-decoration:none}
+  .btn.pink{background:linear-gradient(135deg,var(--green-bright),var(--green-2));color:#04241a;box-shadow:0 14px 36px -16px rgba(52,211,153,.7)}
+  .btn.ghost{border:1px solid var(--line);color:var(--ink);background:rgba(52,211,153,.05)}
 
   .loop{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:18px}
-  .loop .node{display:flex;align-items:center;gap:9px;background:var(--panel);border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:14.5px}
-  .loop .node b{font-family:var(--serif);color:var(--accent);font-weight:600}
-  .loop .ar{color:var(--accent);font-size:17px}
+  .loop .node{display:flex;align-items:center;gap:9px;background:var(--glass);border:1px solid var(--line);border-radius:100px;padding:9px 16px;font-size:14.5px;backdrop-filter:blur(10px)}
+  .loop .node b{font-weight:800;color:var(--green)}
+  .loop .ar{color:var(--green);font-size:17px}
 
   .map{display:flex;gap:9px;flex-wrap:wrap;margin-top:14px}
-  .map .m{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line);border-radius:8px;padding:7px 13px}
+  .map .m{font:600 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line);border-radius:8px;padding:7px 13px;background:rgba(52,211,153,.04)}
 
-  .cover-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;flex:1 1 auto;min-height:0}
+  .cover-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;flex:1 1 auto;min-height:0}
+  .cardstack{display:flex;flex-direction:column;gap:12px}
+  .glowline{height:60px;border-radius:12px;border:1px solid var(--line);
+    background:linear-gradient(90deg,rgba(74,222,128,.0),rgba(74,222,128,.35));
+    position:relative;overflow:hidden}
+  .glowline::after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;
+    background:radial-gradient(circle,rgba(74,222,128,.8),transparent 70%);filter:blur(6px);top:-15px;left:30%}
 
   @media print{html,body{background:#000}.deck{padding:0}.slide{margin:0;border-radius:0;border:none;break-after:page;page-break-after:always}}
 </style>
@@ -118,25 +140,27 @@
 
   <!-- 1 COVER -->
   <section class="slide">
-    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b> <span>basis.hk</span></div></div>
+    <div class="brandmark">
+      <svg width="46" height="30" viewBox="0 0 46 30" aria-label="Basis"><defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4ade80"/><stop offset="1" stop-color="#10b981"/></linearGradient></defs>
+      <circle cx="6" cy="20" r="9" fill="url(#g1)"/><circle cx="18" cy="11" r="9" fill="#34e89e"/><circle cx="30" cy="7" r="9" fill="url(#g1)"/><circle cx="39" cy="14" r="9" fill="#fff" fill-opacity=".85"/></svg>
+      <div class="t"><b>Basis</b> <span>basis.hk</span></div>
+    </div>
     <div class="cover-grid">
       <div>
         <div class="kicker">Hong Kong · APAC</div>
         <h1 class="display" style="font-size:clamp(54px,7vw,92px);margin-top:16px">Basis</h1>
         <p class="lead" style="margin-top:16px">Asia-first AI Operators for marketing. On-brand campaigns for the channels and calendars your markets actually use.</p>
       </div>
-      <div class="card">
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div class="step on"><div class="h">Brand</div><div class="s">Voice locked</div></div>
-          <div class="arrow">→</div>
-          <div class="step"><div class="h">Operators</div><div class="s">Per channel</div></div>
-          <div class="arrow">→</div>
-          <div class="step"><div class="h">Ship</div><div class="s">Drafts</div></div>
-        </div>
-        <div style="margin-top:18px">
-          <div class="kicker" style="margin-bottom:9px">Markets</div>
-          <div class="pills"><span class="pill">HK</span><span class="pill">SEA</span><span class="pill">CN</span><span class="pill">KR / JP</span><span class="pill">IN</span></div>
-        </div>
+      <div class="cardstack">
+        <div class="kicker" style="margin-bottom:2px">Live Operators</div>
+        <div class="mock"><span class="ck">✓</span><span class="no">8556</span>
+          <svg class="net" viewBox="0 0 30 18"><circle cx="9" cy="9" r="8" fill="#fff" fill-opacity=".9"/><circle cx="20" cy="9" r="8" fill="#04241a" fill-opacity=".55" stroke="#fff" stroke-opacity=".5"/></svg></div>
+        <div class="mock dim"><span class="ck">✓</span><span class="no">8556</span>
+          <svg class="net" viewBox="0 0 30 18"><circle cx="9" cy="9" r="8" fill="#fff" fill-opacity=".9"/><circle cx="20" cy="9" r="8" fill="#04241a" fill-opacity=".55" stroke="#fff" stroke-opacity=".5"/></svg></div>
+        <div class="step on" style="margin-top:4px"><div class="h">Brand</div><div class="s">Voice locked</div></div>
+        <div class="arrow">→</div>
+        <div class="step"><div class="h">Operators</div><div class="s">Per channel</div></div>
+        <div class="pills" style="margin-top:6px"><span class="pill">HK</span><span class="pill">SEA</span><span class="pill">CN</span><span class="pill">KR / JP</span><span class="pill">IN</span></div>
       </div>
     </div>
     <div class="footer"><span>Basis · Cover</span><span>01 / 8</span></div>
@@ -144,7 +168,10 @@
 
   <!-- 2 PROBLEM -->
   <section class="slide">
-    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="brandmark">
+      <svg width="46" height="30" viewBox="0 0 46 30"><circle cx="6" cy="20" r="9" fill="url(#g1)"/><circle cx="18" cy="11" r="9" fill="#34e89e"/><circle cx="30" cy="7" r="9" fill="url(#g1)"/><circle cx="39" cy="14" r="9" fill="#fff" fill-opacity=".85"/></svg>
+      <div class="t"><b>Basis</b></div>
+    </div>
     <div class="head">
       <div class="kicker">The Problem</div>
       <h2 class="display" style="margin-top:14px">Generic AI helps demos.<br><span class="accent">It breaks marketing ops.</span></h2>
@@ -162,7 +189,10 @@
 
   <!-- 3 WHAT -->
   <section class="slide">
-    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="brandmark">
+      <svg width="46" height="30" viewBox="0 0 46 30"><circle cx="6" cy="20" r="9" fill="url(#g1)"/><circle cx="18" cy="11" r="9" fill="#34e89e"/><circle cx="30" cy="7" r="9" fill="url(#g1)"/><circle cx="39" cy="14" r="9" fill="#fff" fill-opacity=".85"/></svg>
+      <div class="t"><b>Basis</b></div>
+    </div>
     <div class="head">
       <div class="kicker">What Basis is</div>
       <h2 class="display" style="margin-top:14px;max-width:17ch">Marketing Operators that write in your voice</h2>
@@ -178,7 +208,10 @@
 
   <!-- 4 HOW -->
   <section class="slide">
-    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="brandmark">
+      <svg width="46" height="30" viewBox="0 0 46 30"><circle cx="6" cy="20" r="9" fill="url(#g1)"/><circle cx="18" cy="11" r="9" fill="#34e89e"/><circle cx="30" cy="7" r="9" fill="url(#g1)"/><circle cx="39" cy="14" r="9" fill="#fff" fill-opacity=".85"/></svg>
+      <div class="t"><b>Basis</b></div>
+    </div>
     <div class="head">
       <div class="kicker">Inside the product</div>
       <h2 class="display" style="margin-top:14px;max-width:15ch">Set brand once. Brief in chat. Ship.</h2>
@@ -193,7 +226,10 @@
 
   <!-- 5 ASIA-FIRST -->
   <section class="slide">
-    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="brandmark">
+      <svg width="46" height="30" viewBox="0 0 46 30"><circle cx="6" cy="20" r="9" fill="url(#g1)"/><circle cx="18" cy="11" r="9" fill="#34e89e"/><circle cx="30" cy="7" r="9" fill="url(#g1)"/><circle cx="39" cy="14" r="9" fill="#fff" fill-opacity=".85"/></svg>
+      <div class="t"><b>Basis</b></div>
+    </div>
     <div class="head">
       <div class="kicker">Asia-first</div>
       <h2 class="display" style="margin-top:14px;max-width:19ch">Built for how media actually works across Asia</h2>
@@ -210,7 +246,10 @@
 
   <!-- 6 PROOF -->
   <section class="slide">
-    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="brandmark">
+      <svg width="46" height="30" viewBox="0 0 46 30"><circle cx="6" cy="20" r="9" fill="url(#g1)"/><circle cx="18" cy="11" r="9" fill="#34e89e"/><circle cx="30" cy="7" r="9" fill="url(#g1)"/><circle cx="39" cy="14" r="9" fill="#fff" fill-opacity=".85"/></svg>
+      <div class="t"><b>Basis</b></div>
+    </div>
     <div class="head">
       <div class="kicker">Proof</div>
       <h2 class="display" style="margin-top:14px">Shipped faster. <span class="accent">Still on brand.</span></h2>
@@ -226,7 +265,10 @@
 
   <!-- 7 PRICING -->
   <section class="slide tight">
-    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="brandmark">
+      <svg width="46" height="30" viewBox="0 0 46 30"><circle cx="6" cy="20" r="9" fill="url(#g1)"/><circle cx="18" cy="11" r="9" fill="#34e89e"/><circle cx="30" cy="7" r="9" fill="url(#g1)"/><circle cx="39" cy="14" r="9" fill="#fff" fill-opacity=".85"/></svg>
+      <div class="t"><b>Basis</b></div>
+    </div>
     <div class="head">
       <div class="kicker">How to start</div>
       <h2 class="display" style="margin-top:14px;max-width:17ch">Start free for a week. Pay for the tokens you use.</h2>
@@ -242,7 +284,10 @@
 
   <!-- 8 NEXT -->
   <section class="slide tight">
-    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="brandmark">
+      <svg width="46" height="30" viewBox="0 0 46 30"><circle cx="6" cy="20" r="9" fill="url(#g1)"/><circle cx="18" cy="11" r="9" fill="#34e89e"/><circle cx="30" cy="7" r="9" fill="url(#g1)"/><circle cx="39" cy="14" r="9" fill="#fff" fill-opacity=".85"/></svg>
+      <div class="t"><b>Basis</b></div>
+    </div>
     <div class="head">
       <div class="kicker">Next step</div>
       <h2 class="display" style="margin-top:14px;max-width:15ch">Ship on-brand work faster across Asia</h2>
@@ -257,8 +302,8 @@
         <div class="node"><b>2</b> Create Operators</div><span class="ar">→</span>
         <div class="node"><b>3</b> Brief &amp; ship</div>
       </div>
-      <div style="font-family:var(--serif);font-size:clamp(90px,12vw,150px);line-height:.8;color:rgba(95,196,176,.10);font-weight:700;margin-top:8px">→</div>
-      <div style="display:flex;gap:46px;margin-top:6px;flex-wrap:wrap">
+      <div class="glowline" style="margin-top:14px"></div>
+      <div style="display:flex;gap:46px;margin-top:16px;flex-wrap:wrap">
         <div><div class="kicker" style="margin-bottom:6px">Contact</div><div style="font-size:16px">business@basis.hk</div></div>
         <div><div class="kicker" style="margin-bottom:6px">Web</div><div style="font-size:16px">basis.hk</div></div>
         <div><div class="kicker" style="margin-bottom:6px">Based in</div><div style="font-size:16px">Hong Kong · APAC</div></div>
