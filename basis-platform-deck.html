@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Basis — Asia-first AI Operators for marketing</title>
+<style>
+  /* ---- local fonts (no network) ---- */
+  @font-face{font-family:"Inter";src:url("Inter-Regular.ttf") format("truetype");font-weight:400;font-display:swap}
+  @font-face{font-family:"Inter";src:url("Inter-Medium.ttf") format("truetype");font-weight:500;font-display:swap}
+  @font-face{font-family:"Inter";src:url("Inter-SemiBold.ttf") format("truetype");font-weight:600;font-display:swap}
+  @font-face{font-family:"Inter";src:url("Inter-Bold.ttf") format("truetype");font-weight:700;font-display:swap}
+  @font-face{font-family:"Playfair Display";src:url("PlayfairDisplay.ttf") format("truetype");font-weight:400 900;font-display:swap}
+
+  :root{
+    --bg:#0a0710;
+    --bg-2:#120a1c;
+    --panel:rgba(255,255,255,.045);
+    --panel-line:rgba(255,255,255,.12);
+    --pink:#ff2e93;
+    --pink-soft:#ff5ea3;
+    --violet:#b13bff;
+    --ink:#f6f2f8;
+    --mut:#a89fb2;
+    --mut-2:#7d7488;
+    --serif:"Playfair Display",Georgia,serif;
+    --sans:"Inter",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#000;font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased}
+  .deck{width:100%;max-width:1280px;margin:0 auto;padding:28px 18px}
+
+  .slide{
+    position:relative;aspect-ratio:16/9;width:100%;
+    background:
+      radial-gradient(120% 90% at 85% 12%, rgba(177,59,255,.16), transparent 60%),
+      radial-gradient(120% 100% at 10% 100%, rgba(255,46,147,.14), transparent 55%),
+      linear-gradient(160deg,#0c0814 0%, #08050d 70%);
+    border:1px solid var(--panel-line);
+    border-radius:18px;overflow:hidden;
+    padding:54px 60px 46px;
+    display:flex;flex-direction:column;
+    margin-bottom:26px;
+    page-break-after:always;break-after:page;
+  }
+  .slide::after{ /* faint grain/vignette */
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(140% 120% at 50% 0%, transparent 60%, rgba(0,0,0,.35));
+  }
+
+  /* ---- shared bits ---- */
+  .kicker{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--pink);font-weight:600;margin-bottom:18px}
+  .serif{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
+  .display{font-family:var(--serif);font-weight:600;line-height:1.02;letter-spacing:-.015em;font-size:clamp(34px,4.4vw,58px)}
+  .display .accent{color:var(--pink);font-style:italic}
+  .lead{color:var(--mut);font-size:clamp(15px,1.15vw,18px);line-height:1.55;max-width:62ch}
+  .footer{position:absolute;left:60px;right:60px;bottom:26px;display:flex;justify-content:space-between;align-items:center;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut-2)}
+  .footer::before{content:"";position:absolute;left:0;right:0;top:-14px;height:1px;background:linear-gradient(90deg,var(--panel-line),transparent)}
+  .footer .pg{color:var(--mut)}
+
+  .brandmark{position:absolute;top:40px;right:60px;display:flex;align-items:center;gap:9px;z-index:3}
+  .brandmark .b{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--pink),var(--violet));
+    display:grid;place-items:center;font-family:var(--serif);font-weight:700;color:#0a0710;font-size:18px}
+  .brandmark .t{font-weight:600;letter-spacing:.04em;font-size:15px}
+  .brandmark .t b{font-weight:700}
+  .brandmark .t span{color:var(--mut-2);font-weight:400}
+
+  /* ---- pill / chip ---- */
+  .pill{display:inline-flex;align-items:center;justify-content:center;padding:9px 18px;border-radius:100px;
+    border:1px solid var(--pink);color:var(--ink);font-size:14px;font-weight:500;letter-spacing:.02em}
+  .pills{display:flex;flex-wrap:wrap;gap:10px}
+
+  /* ---- flow card (right module) ---- */
+  .card{background:var(--panel);border:1px solid var(--panel-line);border-radius:18px;padding:26px 28px;backdrop-filter:blur(6px)}
+  .step{display:flex;flex-direction:column;gap:5px;padding:14px 18px;border-radius:13px;border:1px solid var(--panel-line);background:rgba(255,255,255,.03)}
+  .step .h{font-family:var(--serif);font-size:22px;font-weight:600}
+  .step .s{color:var(--mut);font-size:13.5px}
+  .step.on{background:linear-gradient(135deg,rgba(255,46,147,.22),rgba(177,59,255,.18));border-color:var(--pink);box-shadow:0 10px 30px -16px rgba(255,46,147,.7)}
+  .step.on .s{color:#ffd6ea}
+  .arrow{color:var(--pink);font-size:22px;text-align:center;line-height:1;margin:4px 0}
+
+  /* ---- compare columns ---- */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:30px}
+  .col h4{font-size:13px;letter-spacing:.28em;text-transform:uppercase;color:var(--pink);margin-bottom:16px;font-weight:600}
+  .col.bad h4{color:var(--mut-2)}
+  .col ul{list-style:none;display:flex;flex-direction:column}
+  .col li{padding:15px 0;border-top:1px solid var(--panel-line);font-size:16px;color:var(--mut);line-height:1.4}
+  .col.bad li{color:#8b8294}
+  .col.good li{color:var(--ink)}
+
+  /* ---- numbered feature grid ---- */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+  .feat{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;padding:24px 22px}
+  .feat .n{font-family:var(--serif);font-size:15px;color:var(--pink);font-weight:600;margin-bottom:12px;letter-spacing:.04em}
+  .feat .h{font-family:var(--serif);font-size:23px;font-weight:600;margin-bottom:8px}
+  .feat .s{color:var(--mut);font-size:14.5px;line-height:1.5}
+
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:30px}
+  .stat{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;padding:26px 22px}
+  .stat .big{font-family:var(--serif);font-size:clamp(40px,4.4vw,58px);font-weight:600;background:linear-gradient(135deg,var(--pink),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+  .stat .lab{color:var(--mut);font-size:14px;margin-top:12px;line-height:1.4}
+  .stat .who{margin-top:14px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-soft)}
+
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+  .tier{background:var(--panel);border:1px solid var(--panel-line);border-radius:16px;padding:26px 24px;display:flex;flex-direction:column;gap:10px}
+  .tier .name{font-family:var(--serif);font-size:24px;font-weight:600}
+  .tier .big{font-size:30px;font-weight:700;color:var(--ink)}
+  .tier .sub{color:var(--mut);font-size:14px;line-height:1.5}
+  .tier.feat{border-color:var(--pink);background:linear-gradient(160deg,rgba(255,46,147,.12),rgba(177,59,255,.08))}
+  .tier .tag{align-self:flex-start;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--pink);border:1px solid var(--pink);border-radius:100px;padding:4px 10px}
+
+  .cta-row{display:flex;gap:14px;align-items:center;margin-top:26px;flex-wrap:wrap}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 22px;border-radius:100px;font-weight:600;font-size:15px;text-decoration:none}
+  .btn.pink{background:var(--pink);color:#0a0710}
+  .btn.ghost{border:1px solid var(--panel-line);color:var(--ink)}
+
+  .loop{display:flex;gap:12px;align-items:center;margin-top:22px;flex-wrap:wrap}
+  .loop .node{display:flex;align-items:center;gap:10px;background:var(--panel);border:1px solid var(--panel-line);border-radius:100px;padding:10px 18px;font-size:15px}
+  .loop .node b{font-family:var(--serif);color:var(--pink);font-weight:600}
+  .loop .ar{color:var(--pink);font-size:18px}
+
+  .map{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .map .m{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);border:1px solid var(--panel-line);border-radius:8px;padding:8px 14px}
+
+  .right-card{position:absolute;right:60px;top:130px;width:380px}
+  .left-block{max-width:560px}
+
+  @media print{
+    html,body{background:#000}
+    .deck{padding:0}
+    .slide{margin:0;border-radius:0;border:none;break-after:page;page-break-after:always}
+    .controls{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+  <!-- 1 — COVER -->
+  <section class="slide">
+    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b> <span>basis.hk</span></div></div>
+    <div class="left-block">
+      <div class="kicker">Hong Kong · APAC · basis.hk</div>
+      <h1 class="display" style="font-size:clamp(46px,6vw,82px)">Basis</h1>
+      <p class="lead" style="margin-top:18px;max-width:48ch">Asia-first AI Operators for marketing. On-brand campaigns for the channels and calendars your markets actually use.</p>
+    </div>
+    <div class="right-card card">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="step on"><div class="h">Brand</div><div class="s">Voice locked</div></div>
+        <div class="arrow">→</div>
+        <div class="step"><div class="h">Operators</div><div class="s">Per channel</div></div>
+        <div class="arrow">→</div>
+        <div class="step"><div class="h">Ship</div><div class="s">Drafts</div></div>
+      </div>
+      <div style="margin-top:20px">
+        <div class="kicker" style="margin-bottom:10px">Markets</div>
+        <div class="pills">
+          <span class="pill">HK</span><span class="pill">SEA</span><span class="pill">CN</span><span class="pill">KR / JP</span><span class="pill">IN</span>
+        </div>
+      </div>
+      <p style="color:var(--mut);font-size:13px;margin-top:16px">One loop. Asia-first from draft one.</p>
+    </div>
+    <div class="footer"><span>Basis · Cover</span><span class="pg">01 / 8</span></div>
+  </section>
+
+  <!-- 2 — THE PROBLEM -->
+  <section class="slide">
+    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="kicker">The Problem</div>
+    <h2 class="display">Generic AI helps demos.<br><span class="accent">It breaks marketing ops.</span></h2>
+    <div class="cols">
+      <div class="col bad"><h4>Generic AI</h4><ul>
+        <li>Paste brand guidelines into every chat</li>
+        <li>One assistant for every channel</li>
+        <li>English first, localize later</li>
+        <li>Context disappears between sessions</li>
+      </ul></div>
+      <div class="col good"><h4>Basis</h4><ul>
+        <li>Brand settings load once, everywhere</li>
+        <li>Specialist Operators per channel</li>
+        <li>Asia-first briefs from draft one</li>
+        <li>Persistent threads that compound</li>
+      </ul></div>
+    </div>
+    <div class="footer"><span>Basis · Problem</span><span class="pg">02 / 8</span></div>
+  </section>
+
+  <!-- 3 — WHAT BASIS IS -->
+  <section class="slide">
+    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="kicker">What Basis is</div>
+    <h2 class="display" style="max-width:18ch">Marketing Operators that write in your voice</h2>
+    <p class="lead" style="margin-top:18px">A platform you run yourself — and a consultancy that designs the operating system around it.</p>
+    <div class="grid3">
+      <div class="feat"><div class="n">01</div><div class="h">Operators</div><div class="s">Specialists for ads, email, social, SEO, and campaigns — each with its own history.</div></div>
+      <div class="feat"><div class="n">02</div><div class="h">Brand context</div><div class="s">Tone, audience, and avoid lists lock once and travel with every draft.</div></div>
+      <div class="feat"><div class="n">03</div><div class="h">Asia-first</div><div class="s">Built for WeChat, LINE, KakaoTalk, festivals, and multi-market calendars — not a localization pass.</div></div>
+    </div>
+    <div class="footer"><span>Basis · Product</span><span class="pg">03 / 8</span></div>
+  </section>
+
+  <!-- 4 — INSIDE THE PRODUCT -->
+  <section class="slide">
+    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="kicker">Inside the product</div>
+    <h2 class="display" style="max-width:16ch">Set brand once. Brief in chat. Ship.</h2>
+    <div class="grid3" style="margin-top:34px">
+      <div class="feat"><div class="n">01</div><div class="h">Choose the job</div><div class="s">Spin up an Operator for a launch, cadence, or high-stakes brief.</div></div>
+      <div class="feat"><div class="n">02</div><div class="h">Brief plainly</div><div class="s">Goal, offer, constraints — like briefing a teammate.</div></div>
+      <div class="feat"><div class="n">03</div><div class="h">Ship the draft</div><div class="s">Refine in thread. History stays for the next sprint.</div></div>
+    </div>
+    <div class="footer"><span>Basis · How it works</span><span class="pg">04 / 8</span></div>
+  </section>
+
+  <!-- 5 — ASIA-FIRST -->
+  <section class="slide">
+    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="kicker">Asia-first</div>
+    <h2 class="display" style="max-width:20ch">Built for how media actually works across Asia</h2>
+    <p class="lead" style="margin-top:16px">Not Instagram-plus-Google as the whole map — then a localization pass.</p>
+    <div class="grid3">
+      <div class="feat"><div class="n">01</div><div class="h">Where media lives</div><div class="s">WeChat, LINE, KakaoTalk, and chat commerce sit beside open web and Meta/Google.</div></div>
+      <div class="feat"><div class="n">02</div><div class="h">How demand happens</div><div class="s">Live commerce and KOLs drive more of the funnel than ads alone.</div></div>
+      <div class="feat"><div class="n">03</div><div class="h">Campaign calendars</div><div class="s">11.11, CNY, and regional peaks set the planning cycle.</div></div>
+    </div>
+    <div class="map">
+      <span class="m">HK hub</span><span class="m">CN</span><span class="m">KR</span><span class="m">JP</span><span class="m">SEA</span><span class="m">IN</span>
+    </div>
+    <div class="footer"><span>Basis · Asia-first</span><span class="pg">05 / 8</span></div>
+  </section>
+
+  <!-- 6 — PROOF -->
+  <section class="slide">
+    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="kicker">Proof</div>
+    <h2 class="display">Shipped faster. <span class="accent">Still on brand.</span></h2>
+    <div class="grid4">
+      <div class="stat"><div class="big">3.4×</div><div class="lab">social &amp; video output</div><div class="who">Bioslim · Beauty</div></div>
+      <div class="stat"><div class="big">5×</div><div class="lab">weekly posts shipped</div><div class="who">Spice · Nightlife</div></div>
+      <div class="stat"><div class="big">3×</div><div class="lab">social &amp; video cadence</div><div class="who">Tech Data · IT</div></div>
+      <div class="stat"><div class="big">＋</div><div class="lab">on-brand, every market</div><div class="who">Across APAC</div></div>
+    </div>
+    <div class="footer"><span>Basis · Customers</span><span class="pg">06 / 8</span></div>
+  </section>
+
+  <!-- 7 — HOW TO START -->
+  <section class="slide">
+    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="kicker">How to start</div>
+    <h2 class="display" style="max-width:18ch">Start free for a week. Pay for the tokens you use.</h2>
+    <p class="lead" style="margin-top:16px">Same product features across tiers. Capacity and shared pools change.</p>
+    <div class="tiers">
+      <div class="tier"><div class="name">Free trial</div><div class="big">7 days</div><div class="sub">Up to 2 Operators. Full product. No credit card to start.</div></div>
+      <div class="tier feat"><div class="tag">Prepaid</div><div class="name">Token packs</div><div class="big">Starter · Growth · Scale</div><div class="sub">Buy only when you need more. Never expire.</div></div>
+      <div class="tier"><div class="name">Team</div><div class="big">Custom</div><div class="sub">Shared brand &amp; workspaces. Unlimited Operators. Optional consultancy.</div></div>
+    </div>
+    <div class="footer"><span>Basis · Pricing</span><span class="pg">07 / 8</span></div>
+  </section>
+
+  <!-- 8 — NEXT STEP -->
+  <section class="slide">
+    <div class="brandmark"><div class="b">B</div><div class="t"><b>Basis</b></div></div>
+    <div class="kicker">Next step</div>
+    <h2 class="display" style="max-width:16ch">Ship on-brand work faster across Asia</h2>
+    <div class="cta-row">
+      <a class="btn pink" href="https://basis.hk/demo">Book a demo →</a>
+      <a class="btn ghost" href="https://basis.hk/signup">basis.hk/signup</a>
+    </div>
+    <div class="loop">
+      <div class="node"><b>1</b> Lock brand</div><span class="ar">→</span>
+      <div class="node"><b>2</b> Create Operators</div><span class="ar">→</span>
+      <div class="node"><b>3</b> Brief &amp; ship</div>
+    </div>
+    <div style="display:flex;gap:40px;margin-top:34px;flex-wrap:wrap">
+      <div><div class="kicker" style="margin-bottom:6px">Contact</div><div style="font-size:17px">business@basis.hk</div></div>
+      <div><div class="kicker" style="margin-bottom:6px">Web</div><div style="font-size:17px">basis.hk</div></div>
+      <div><div class="kicker" style="margin-bottom:6px">Based in</div><div style="font-size:17px">Hong Kong · APAC</div></div>
+    </div>
+    <div class="footer"><span>Basis · Let's talk</span><span class="pg">08 / 8</span></div>
+  </section>
+
+</div>
+</body>
+</html>
